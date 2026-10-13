@@ -1,0 +1,56 @@
+{
+  "name": "B_tree",
+  "num_qubits": 9,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      6,
+      8
+    ]
+  ],
+  "directed": false,
+  "basis_gates": [
+    "rz",
+    "sx",
+    "x",
+    "cx"
+  ],
+  "noise": {
+    "one_qubit_depolarizing": 0.001,
+    "cx_depolarizing": 0.005,
+    "readout": 0.01
+  },
+  "one_qubit_noise_gates": [
+    "rz",
+    "sx",
+    "x"
+  ],
+  "rationale": "Nine-node tree tests whether extra qubits alone reduce routing."
+}

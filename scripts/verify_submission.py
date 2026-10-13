@@ -19,6 +19,10 @@ def verify():
         'results/notebook_verification.json','data/raw/moons.csv',
         'data/processed/dataset_and_reference.npz',
         'data/processed/processor_A_kernels.npz','data/processed/processor_B_kernels.npz',
+        'src/optimization.py','results/tables/topology_grid.csv',
+        'results/tables/compiler_and_topology_measurements.csv',
+        'data/processed/A_fused_parity_kernels.npz','data/processed/B_fused_parity_kernels.npz',
+        'docs/compiler_method.md',
     ]
     for name in required:
         assert (ROOT/name).is_file(),f'Missing required artifact: {name}'
@@ -35,12 +39,20 @@ def verify():
     assert manifest['execution']['shots']==4096,'Official submission must use 4096 shots'
     assert manifest['execution']['pairs_including_diagonals']==4840
     assert max(manifest['compiled_overlap_max_errors'].values())<1e-9
+    assert max(manifest['enhancements']['compilation_errors'].values())<1e-9
+    assert manifest['enhancements']['topology_grid_rows']==36
+    assert manifest['enhancements']['additional_measured_kernels']==6
+    assert manifest['cost_aware']['measured_kernels']==2
     for name,n in [('A',5),('B',9)]:
         processor=json.loads((ROOT/f'processors/processor_{name}.json').read_text())
         assert processor['num_qubits']==n
         data=np.load(ROOT/f'data/processed/processor_{name}_kernels.npz')
         assert np.all(data['histograms'].sum(axis=1)==4096)
         assert np.linalg.eigvalsh(data['noisy_PSD_train']).min()>-1e-10
+    for name in ['A_fused_sabre','B_fused_sabre','A_fused_parity','B_fused_parity','A_tree_baseline','B_tree_baseline','A_cost_aware','B_cost_aware']:
+        data=np.load(ROOT/f'data/processed/{name}_kernels.npz')
+        assert np.all(data['histograms'].sum(axis=1)==4096)
+        assert np.linalg.eigvalsh(data['psd_train']).min()>-1e-10
     checksums=json.loads((ROOT/'results/checksums.json').read_text())
     for path,expected in checksums.items():
         assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==expected,f'Stale artifact: {path}'

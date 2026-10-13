@@ -13,11 +13,10 @@ def package():
     verification=verify()
     target=ROOT/'submission'/'qff_ps_q2_submission.zip'
     target.parent.mkdir(exist_ok=True)
-    directories=['src','processors','data','results','assets','tests','scripts','.github','research']
+    directories=['src','processors','data','results','assets','tests','scripts','.github','research','docs']
     files=[ROOT/name for name in [
         'README.md','report.md','main.ipynb','requirements.txt','requirements.lock.txt',
-        'SUBMISSION_CHECKLIST.md','JUDGES_GUIDE.md','.gitignore','.gitattributes','pytest.ini',
-        'QFF_Phase_1_Master_Guide.pdf',
+        '.gitignore','.gitattributes','pytest.ini',
     ] if (ROOT/name).is_file()]
     for directory in directories:
         files.extend(path for path in (ROOT/directory).rglob('*') if path.is_file()

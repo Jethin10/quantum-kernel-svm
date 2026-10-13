@@ -41,7 +41,11 @@ def measured_qubits(circuit):
 
 
 def compile_overlap(config, spec, strategy="sabre"):
-    logical, xp, yp = overlap_circuit(spec)
+    if strategy == "fused_sabre":
+        from .optimization import fused_overlap
+        logical, xp, yp = fused_overlap(spec)
+    else:
+        logical, xp, yp = overlap_circuit(spec)
     cmap = coupling_map(config)
     initial = list(distance_layout(config, spec))
     if strategy == "basic":

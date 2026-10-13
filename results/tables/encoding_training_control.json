@@ -1,0 +1,122 @@
+[
+  {
+    "encoding": "repeated_coordinates",
+    "reps": 2,
+    "scale": 0.25,
+    "C": 0.1,
+    "cv_mean": 0.875,
+    "cv_std": 0.04419417382415922,
+    "fold_scores": [
+      0.9375,
+      0.875,
+      0.875,
+      0.875,
+      0.8125
+    ]
+  },
+  {
+    "encoding": "repeated_coordinates",
+    "reps": 2,
+    "scale": 0.25,
+    "C": 1.0,
+    "cv_mean": 0.9,
+    "cv_std": 0.05590169943749474,
+    "fold_scores": [
+      0.9375,
+      0.9375,
+      0.875,
+      0.9375,
+      0.8125
+    ]
+  },
+  {
+    "encoding": "repeated_coordinates",
+    "reps": 2,
+    "scale": 0.25,
+    "C": 10.0,
+    "cv_mean": 0.9375,
+    "cv_std": 0.0625,
+    "fold_scores": [
+      1.0,
+      1.0,
+      0.875,
+      0.9375,
+      0.875
+    ]
+  },
+  {
+    "encoding": "repeated_coordinates",
+    "reps": 2,
+    "scale": 0.25,
+    "C": 100.0,
+    "cv_mean": 1.0,
+    "cv_std": 0.0,
+    "fold_scores": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  {
+    "encoding": "mean_difference_coordinates",
+    "reps": 2,
+    "scale": 0.25,
+    "C": 0.1,
+    "cv_mean": 0.875,
+    "cv_std": 0.04419417382415922,
+    "fold_scores": [
+      0.9375,
+      0.875,
+      0.875,
+      0.875,
+      0.8125
+    ]
+  },
+  {
+    "encoding": "mean_difference_coordinates",
+    "reps": 2,
+    "scale": 0.25,
+    "C": 1.0,
+    "cv_mean": 0.9,
+    "cv_std": 0.05590169943749474,
+    "fold_scores": [
+      0.9375,
+      0.9375,
+      0.875,
+      0.9375,
+      0.8125
+    ]
+  },
+  {
+    "encoding": "mean_difference_coordinates",
+    "reps": 2,
+    "scale": 0.25,
+    "C": 10.0,
+    "cv_mean": 0.9375,
+    "cv_std": 0.0625,
+    "fold_scores": [
+      1.0,
+      1.0,
+      0.875,
+      0.9375,
+      0.875
+    ]
+  },
+  {
+    "encoding": "mean_difference_coordinates",
+    "reps": 2,
+    "scale": 0.25,
+    "C": 100.0,
+    "cv_mean": 0.9625,
+    "cv_std": 0.03423265984407289,
+    "fold_scores": [
+      1.0,
+      1.0,
+      0.9375,
+      0.9375,
+      0.9375
+    ]
+  }
+]

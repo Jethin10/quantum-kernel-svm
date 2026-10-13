@@ -1,6 +1,182 @@
 {
   "problem": "PS-Q2",
-  "generated_at_utc": "2026-10-13T04:54:15.503622+00:00",
+  "generated_at_utc": "2026-10-13T05:36:20.037181+00:00",
+  "enhancements": {
+    "compilation_errors": {
+      "A_baseline": 5.329070518200751e-15,
+      "B_baseline": 4.9960036108132044e-15,
+      "A_fused_sabre": 4.773959005888173e-15,
+      "B_fused_sabre": 6.106226635438361e-15,
+      "A_fused_parity": 4.9960036108132044e-15,
+      "B_fused_parity": 6.106226635438361e-15,
+      "A_tree_baseline": 5.329070518200751e-15,
+      "B_tree_baseline": 5.329070518200751e-15
+    },
+    "timings": {
+      "A_baseline": {
+        "aer_original_seconds": 33.90957440000193,
+        "cache_hit_batches": 38,
+        "batches": 38,
+        "simulator_metadata": {
+          "method": "density_matrix",
+          "active_input_qubits": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "num_qubits": 4,
+          "measure_sampling": true
+        },
+        "cache_key": "666489d18f2e88b5e9fa"
+      },
+      "B_baseline": {
+        "aer_original_seconds": 32.204066300000704,
+        "cache_hit_batches": 38,
+        "batches": 38,
+        "simulator_metadata": {
+          "method": "density_matrix",
+          "active_input_qubits": [
+            0,
+            1,
+            3,
+            4
+          ],
+          "num_qubits": 4,
+          "measure_sampling": true
+        },
+        "cache_key": "4b4c70d15ce7e1cc4bfc"
+      },
+      "A_fused_sabre": {
+        "aer_original_seconds": 43.5545273000007,
+        "cache_hit_batches": 38,
+        "batches": 38,
+        "simulator_metadata": {
+          "method": "density_matrix",
+          "active_input_qubits": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "num_qubits": 4,
+          "measure_sampling": true
+        },
+        "cache_key": "501f643c22d582512a4d"
+      },
+      "B_fused_sabre": {
+        "aer_original_seconds": 39.92670839999937,
+        "cache_hit_batches": 38,
+        "batches": 38,
+        "simulator_metadata": {
+          "method": "density_matrix",
+          "active_input_qubits": [
+            0,
+            1,
+            3,
+            4
+          ],
+          "num_qubits": 4,
+          "measure_sampling": true
+        },
+        "cache_key": "836e3a0fb1772284a40c"
+      },
+      "A_fused_parity": {
+        "aer_original_seconds": 43.34914460000073,
+        "cache_hit_batches": 38,
+        "batches": 38,
+        "simulator_metadata": {
+          "method": "density_matrix",
+          "active_input_qubits": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "num_qubits": 4,
+          "measure_sampling": true
+        },
+        "cache_key": "30873eb51d5a478d94be"
+      },
+      "B_fused_parity": {
+        "aer_original_seconds": 33.94878219999828,
+        "cache_hit_batches": 38,
+        "batches": 38,
+        "simulator_metadata": {
+          "method": "density_matrix",
+          "active_input_qubits": [
+            0,
+            1,
+            3,
+            4
+          ],
+          "num_qubits": 4,
+          "measure_sampling": true
+        },
+        "cache_key": "2b55895bc69c8eae96dc"
+      },
+      "A_tree_baseline": {
+        "aer_original_seconds": 42.241470600001776,
+        "cache_hit_batches": 38,
+        "batches": 38,
+        "simulator_metadata": {
+          "method": "density_matrix",
+          "active_input_qubits": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "num_qubits": 4,
+          "measure_sampling": true
+        },
+        "cache_key": "67f0801ca859e908bf5e"
+      },
+      "B_tree_baseline": {
+        "aer_original_seconds": 47.366700099997615,
+        "cache_hit_batches": 38,
+        "batches": 38,
+        "simulator_metadata": {
+          "method": "density_matrix",
+          "active_input_qubits": [
+            0,
+            1,
+            2,
+            5
+          ],
+          "num_qubits": 4,
+          "measure_sampling": true
+        },
+        "cache_key": "0cbfccd3e3ec5d09030f"
+      }
+    },
+    "topology_grid_rows": 36,
+    "additional_measured_kernels": 6,
+    "nested_split_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "robustness_scope": "Exact kernels only; repeated splits share the same fixed dataset."
+  },
+  "cost_aware": {
+    "selection_rule": "Maximum training CV mean; minimum worst-processor baseline CX; CV std; repetitions; interaction name",
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "linear"
+    },
+    "C": 100.0,
+    "scope": "Secondary model, conditional on primary training-selected scale; not a change to the frozen ring comparison",
+    "measured_kernels": 2
+  },
   "dataset": {
     "n_samples": 100,
     "noise": 0.1,
@@ -346,7 +522,7 @@
   },
   "python": "3.12.14",
   "platform": "Windows-11-10.0.26200-SP0",
-  "total_pipeline_seconds": 18.45423239999991,
+  "total_pipeline_seconds": 51.47059739999986,
   "noise_assumption": "Depolarizing channel on rz/sx/x; same policy on A/B. No T1/T2 or durations.",
   "readout_mitigation": "Inverse of known synthetic independent-bit readout channel; no calibration cost claimed.",
   "psd_extension": "Positive training eigenspace above 1e-8; cross projected into same eigenspace."

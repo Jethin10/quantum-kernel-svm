@@ -1,0 +1,44 @@
+{
+  "name": "A_cycle",
+  "num_qubits": 5,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      0
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "directed": false,
+  "basis_gates": [
+    "rz",
+    "sx",
+    "x",
+    "cx"
+  ],
+  "noise": {
+    "one_qubit_depolarizing": 0.001,
+    "cx_depolarizing": 0.005,
+    "readout": 0.01
+  },
+  "one_qubit_noise_gates": [
+    "rz",
+    "sx",
+    "x"
+  ],
+  "rationale": "Four-cycle plus tail isolates connectivity from qubit budget."
+}

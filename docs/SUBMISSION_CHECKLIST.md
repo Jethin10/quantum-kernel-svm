@@ -13,7 +13,7 @@
 - [x] Architecture controls, shot sensitivity, and disclosed readout correction.
 - [x] Required repository structure, notebook, pinned dependencies, report, plots.
 - [ ] Verify `python -m pytest -q` and notebook execution on the final files.
-- [x] Published [Jethin10/quantum-kernel-svm](https://github.com/Jethin10/quantum-kernel-svm) publicly with the notebook, figures, source, results, and submission ZIP; GitHub's Linux verification passed.
+- [ ] Publish the repository publicly and verify the notebook/figures render on GitHub.
 - [ ] Submit the public GitHub URL at https://qffsrmap2026.com/learning/hackathon.
 
 The guide lists 14 October 2026, 23:59 IST as the deadline. Tests and notebook execution have their own machine-readable verification artifacts; do not tick them based only on file existence. Publication and portal submission require separate confirmation.

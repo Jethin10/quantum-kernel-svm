@@ -41,15 +41,63 @@ The exported architecture table also includes BasicSwap routing, linear/ring/all
 | CX gates per pair | 62 | 30 |
 | 1q gates per pair | 80 | 80 |
 | Inserted routing SWAPs | 12 | 0 |
-| Measured pairs | 4840 | 4840 |
-| Total shots | 19824640 | 19824640 |
-| CX × shots × pairs | 1229127680 | 594739200 |
+| Measured pairs | 4840.0 | 4840.0 |
+| Total shots | 19824640.0 | 19824640.0 |
+| CX × shots × pairs | 1229127680.0 | 594739200.0 |
 
 B reduces CX count by 51.6% and depth by 29.2% for this primary template. More physical qubits alone do not imply lower cost. A four-cycle is the specific graph property tested. Sparse linear logical interactions may need little or no routing on either architecture; the controls reveal whether the advantage persists under other interaction patterns.
 
 The five-qubit cycle control tests the qubit-budget explanation directly: a five-qubit graph can also host the four-qubit ring without SWAPs. For linear interactions, the primary A and B both use 22 CX gates and depth 45. The guide's reference B also hosts the ring directly. The architecture benefit comes from matching connectivity to the interaction graph, and is not a general statement that nine qubits outperform five.
 
 ![Logical interaction and graph controls](results/figures/routing_controls.png)
+
+## Architecture exploration and exact circuit optimization
+
+| Processor | Compiler | Depth | CX | SWAP | Raw RMSE | Test accuracy | Circuits | Aer seconds |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| A | baseline | 89 | 62 | 12 | 0.1558 | 90% | 4840 | 33.9096 |
+| B | baseline | 63 | 30 | 0 | 0.1024 | 100% | 4840 | 32.2041 |
+| A | fused_sabre | 74 | 50 | 10 | 0.1347 | 90% | 4840 | 43.5545 |
+| B | fused_sabre | 52 | 24 | 0 | 0.0895 | 100% | 4840 | 39.9267 |
+| A | fused_parity | 52 | 30 | 0 | 0.1042 | 100% | 4840 | 43.3491 |
+| B | fused_parity | 52 | 24 | 0 | 0.0895 | 100% | 4840 | 33.9488 |
+| A_tree | baseline | 93 | 48 | 6 | 0.1333 | 90% | 4840 | 42.2415 |
+| B_tree | baseline | 90 | 63 | 13 | 0.1573 | 90% | 4840 | 47.3667 |
+
+All rows use the same training-selected kernel, C, 4,096-shot budget, and synthetic noise. Aer seconds are original simulator acquisition time, even when checkpoints are reused. They are not hardware execution estimates. The compiled template is reused for all 4,840 pairs. The fused-SABRE ablation isolates diagonal fusion from parity-network synthesis.
+Accuracy uses the positive training eigenspace and its consistent held-out extension. RMSE uses the raw training kernel before that repair.
+
+We compare three five-qubit graphs, chain/tree/cycle-plus-tail, and three nine-qubit graphs, square lattice/guide reference/tree. [The complete grid](results/tables/topology_grid.csv) contains 36 combinations of architecture, linear/ring/full K4 interaction, and BasicSwap/SABRE routing. This includes cases where the square's native four-cycle provides no automatic routing solution.
+
+Under SABRE, full K4 interactions require 86 CX/118 depth on the chain, 68/91 on the square, and 61/100 on the guide reference. The reference has fewer CX gates but greater depth than the square, so the ranking depends on the objective. A five-node cycle uses 66/95, close to the nine-node square. The nine-node tree uses 63 CX for the ring, exceeding the five-node chain's 62. These controls show that qubit count, native interaction coverage, and routable parallelism are separate considerations. Their full-interaction results are compile-only; noisy kernel quality is measured only for the disclosed acquisition rows.
+
+![Topology and interaction comparison](results/figures/topology_grid.png)
+![Kernel-preserving compiler optimization](results/figures/compiler_optimization.png)
+
+The new compiler merges the adjacent diagonal blocks in compute–uncompute, then synthesizes ring phases using native CX parity networks. For r repetitions, 2r diagonal blocks become 2r−1. A chain block uses ten CX gates; a native cycle block uses eight. All intermediate parities are uncomputed. The entire ideal unitary is preserved up to global phase; noise changes because fewer physical gates are executed. This is an exact compiler improvement, with no approximation or held-out score selection. It is not a claim of globally optimal synthesis.
+
+See [the compiler derivation](docs/compiler_method.md) for explicit phase equations, native CX sequences, validation, and primary sources. The optimized seeded classifiers and their conditional shot-resampling results must be interpreted together; fewer gates need not improve the mean accuracy of an already accurate classifier.
+
+For the frozen two-layer circuit, parity synthesis reduces A from 62 to 30 CX gates and depth 89 to 52; B falls from 30 to 24 CX and depth 63 to 52. Thus B's CX advantage over A shrinks from 51.6% under baseline routing to 20% after exact synthesis. Connectivity and compiler choice jointly determine cost. A naive routing comparison can overstate the irreducible topology penalty.
+
+[Twenty paired shot-resampling trials](results/tables/compiler_resampling_summary.csv) cover every measured circuit variant. [Ten predeclared split seeds](results/tables/nested_split_robustness.csv) repeat training-only model selection and compare exact QSVM with independently tuned classical baselines. These splits reuse the prescribed dataset, and the robustness study uses exact kernels; it does not establish noisy-device or population superiority.
+
+[Training-only cost/quality controls](results/tables/training_cost_quality.csv) compare linear/ring/full interactions at repetitions 1/2/3 with C selected inside the training set. Stars mark the observed CX-versus-CV Pareto frontier, not a proven global optimum. The primary model remains frozen. [Encoding controls](results/tables/encoding_training_control.csv) compare repeated coordinates with `(a,b,(a+b)/2,(a-b)/2)` using fold-fitted scaling and no held-out labels. These are post-selection diagnostics at the primary angle scale, not unbiased estimates of a newly chosen model.
+
+![Training cost and quality](results/figures/training_cost_quality.png)
+
+### A lower-cost secondary model
+
+The training-only rule first maximizes CV accuracy, then minimizes the worst A/B native CX count among tied candidates. At the primary angle scale it selects a two-layer **linear** feature map with C=100. This is a secondary model, separate from the frozen ring compiler comparison. Its 100% training CV score costs 22 CX gates on either processor. The kernel itself changes, so its RMSE uses its own exact reference.
+
+| Processor | Depth | CX | Seeded test accuracy | RMSE versus its own exact kernel |
+|---|---:|---:|---:|---:|
+| A | 45 | 22 | 100% | 0.0891 |
+| B | 45 | 22 | 100% | 0.0891 |
+
+[Full measurements](results/tables/cost_aware_measurements.csv) and [20 shot-resampling trials](results/tables/cost_aware_resampling_summary.csv) are retained. This is conditional model selection at an already selected scale, not an unbiased new CV estimate or a change to the primary ring results.
+
+The linear model's conditional shot-resampling mean is **92% on both processors**, compared with **96.25% on A and 96.5% on B** for the native-parity ring model. It is cheaper but less robust to shot fluctuations in this experiment. Ideal training CV and gate count alone do not predict noisy classification quality; the seeded 100% score should not be used to hide that tradeoff.
 
 ## Workload and timing definitions
 
@@ -113,7 +161,7 @@ Only A and B are implemented, as required for Phase 1. No access to a cloud quan
 
 ## Primary references
 
-- [Master guide](QFF_Phase_1_Master_Guide.pdf), pages 1–3, 5, and 7: task, architecture freedom, noise, repository, deadline, rubric.
+- [Master guide](docs/QFF_Phase_1_Master_Guide.pdf), pages 1–3, 5, and 7: task, architecture freedom, noise, repository, deadline, rubric.
 - [Havlicek et al., quantum feature-space classifiers](https://arxiv.org/abs/1804.11326).
 - [scikit-learn make_moons](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_moons.html).
 - [scikit-learn precomputed SVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html).

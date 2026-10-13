@@ -1,0 +1,66 @@
+[
+  {
+    "processor": "A",
+    "compiler": "baseline",
+    "mean": 0.9625,
+    "std": 0.03581751997056895,
+    "min": 0.9,
+    "max": 1.0
+  },
+  {
+    "processor": "A",
+    "compiler": "fused_parity",
+    "mean": 0.9625,
+    "std": 0.045523273400016315,
+    "min": 0.85,
+    "max": 1.0
+  },
+  {
+    "processor": "A",
+    "compiler": "fused_sabre",
+    "mean": 0.97,
+    "std": 0.029912152080805953,
+    "min": 0.9,
+    "max": 1.0
+  },
+  {
+    "processor": "A_tree",
+    "compiler": "baseline",
+    "mean": 0.9625,
+    "std": 0.045523273400016294,
+    "min": 0.85,
+    "max": 1.0
+  },
+  {
+    "processor": "B",
+    "compiler": "baseline",
+    "mean": 0.9675,
+    "std": 0.03725799101852974,
+    "min": 0.9,
+    "max": 1.0
+  },
+  {
+    "processor": "B",
+    "compiler": "fused_parity",
+    "mean": 0.9650000000000001,
+    "std": 0.032847334266589305,
+    "min": 0.9,
+    "max": 1.0
+  },
+  {
+    "processor": "B",
+    "compiler": "fused_sabre",
+    "mean": 0.9650000000000001,
+    "std": 0.032847334266589305,
+    "min": 0.9,
+    "max": 1.0
+  },
+  {
+    "processor": "B_tree",
+    "compiler": "baseline",
+    "mean": 0.9574999999999999,
+    "std": 0.03725799101852973,
+    "min": 0.9,
+    "max": 1.0
+  }
+]

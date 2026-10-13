@@ -1,0 +1,40 @@
+{
+  "name": "A",
+  "num_qubits": 5,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "directed": false,
+  "basis_gates": [
+    "rz",
+    "sx",
+    "x",
+    "cx"
+  ],
+  "noise": {
+    "one_qubit_depolarizing": 0.001,
+    "cx_depolarizing": 0.005,
+    "readout": 0.01
+  },
+  "one_qubit_noise_gates": [
+    "rz",
+    "sx",
+    "x"
+  ],
+  "rationale": "Five-node path: a sparse, connected baseline with no native four-qubit cycle. Both CX directions are supported."
+}

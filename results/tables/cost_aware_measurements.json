@@ -1,0 +1,34 @@
+[
+  {
+    "processor": "A",
+    "reps": 2,
+    "scale": 0.25,
+    "topology": "linear",
+    "C": 100.0,
+    "cv_mean": 1.0,
+    "depth": 45,
+    "cx_count": 22,
+    "routing_swaps": 0,
+    "accuracy": 1.0,
+    "kernel_rmse_vs_own_exact": 0.08908368108504225,
+    "compiled_error": 4.9960036108132044e-15,
+    "aer_seconds": 35.898608099997546,
+    "cache_hit_batches": 38
+  },
+  {
+    "processor": "B",
+    "reps": 2,
+    "scale": 0.25,
+    "topology": "linear",
+    "C": 100.0,
+    "cv_mean": 1.0,
+    "depth": 45,
+    "cx_count": 22,
+    "routing_swaps": 0,
+    "accuracy": 1.0,
+    "kernel_rmse_vs_own_exact": 0.08908368108504225,
+    "compiled_error": 4.9960036108132044e-15,
+    "aer_seconds": 36.67245080000157,
+    "cache_hit_batches": 38
+  }
+]

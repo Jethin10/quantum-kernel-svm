@@ -187,8 +187,14 @@ def run_experiment(root=None, shots=4096, repeats=20, batch_size=128):
     viz.routing_controls(resource_rows, root / "results/figures/routing_controls.png")
     viz.shot_sensitivity(sensitivity_table, root / "results/figures/shot_sensitivity.png")
     viz.accuracy_plot(accuracy_rows, root / "results/figures/classification.png")
+    from .enhancements import explore
+    enhancements = explore(root,spec,C,shots,repeats,batch_size)
+    from .design_controls import evaluate_cost_choice
+    cost_aware = evaluate_cost_choice(root,shots,repeats,batch_size)
     manifest = {
         "problem": "PS-Q2", "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+        "enhancements": enhancements,
+        "cost_aware":cost_aware,
         "dataset": {"n_samples":100,"noise":0.1,"random_state":42},
         "split": {"train":80,"test":20,"stratified":True,"seed":42},
         "feature_map":spec.to_dict(), "C":C,

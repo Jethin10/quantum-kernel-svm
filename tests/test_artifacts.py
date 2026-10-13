@@ -46,3 +46,20 @@ def test_saved_artifact_checksums():
     assert len(checksums)>20
     for name,expected in checksums.items():
         assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
+
+
+@pytest.mark.skipif(not (ROOT/'results/tables/compiler_and_topology_measurements.csv').exists(),reason='Run expanded experiment first')
+def test_optimized_measurements_reproduce_predictions():
+    reference = np.load(ROOT/'data/processed/dataset_and_reference.npz')
+    ytrain = reference['y'][reference['train_idx']]
+    for name in ['A_fused_parity','B_fused_parity','A_tree_baseline','B_tree_baseline','A_fused_sabre','B_fused_sabre','A_cost_aware','B_cost_aware']:
+        saved = np.load(ROOT/f'data/processed/{name}_kernels.npz')
+        assert saved['histograms'].shape == (4840,16)
+        assert np.all(saved['histograms'].sum(axis=1)==4096)
+        train,cross = assemble(saved['histograms'][:,0]/4096,saved['pair_indices'])
+        np.testing.assert_array_equal(train,saved['raw_train'])
+        repaired,extended,_ = psd_extension(train,cross)
+        np.testing.assert_allclose(repaired,saved['psd_train'],atol=1e-12)
+        np.testing.assert_allclose(extended,saved['psd_cross'],atol=1e-12)
+        _,_,pred = fit_kernel(repaired,extended,ytrain,saved['test_labels'],float(saved['C']))
+        np.testing.assert_array_equal(pred,saved['predictions'])

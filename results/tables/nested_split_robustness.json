@@ -1,0 +1,302 @@
+[
+  {
+    "split_seed": 0,
+    "model": "Exact QSVM",
+    "reps": 1.0,
+    "scale": 0.5,
+    "topology": "ring",
+    "C": 10.0,
+    "cv_mean": 0.9875,
+    "accuracy": 1.0
+  },
+  {
+    "split_seed": 0,
+    "model": "Classical LINEAR",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 0.9,
+    "accuracy": 0.75
+  },
+  {
+    "split_seed": 0,
+    "model": "Classical RBF",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 0.9875,
+    "accuracy": 1.0
+  },
+  {
+    "split_seed": 1,
+    "model": "Exact QSVM",
+    "reps": 2.0,
+    "scale": 0.25,
+    "topology": "ring",
+    "C": 100.0,
+    "cv_mean": 1.0,
+    "accuracy": 1.0
+  },
+  {
+    "split_seed": 1,
+    "model": "Classical LINEAR",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 0.8875,
+    "accuracy": 0.85
+  },
+  {
+    "split_seed": 1,
+    "model": "Classical RBF",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 1.0,
+    "accuracy": 1.0
+  },
+  {
+    "split_seed": 2,
+    "model": "Exact QSVM",
+    "reps": 2.0,
+    "scale": 0.5,
+    "topology": "ring",
+    "C": 1.0,
+    "cv_mean": 1.0,
+    "accuracy": 1.0
+  },
+  {
+    "split_seed": 2,
+    "model": "Classical LINEAR",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 0.875,
+    "accuracy": 0.85
+  },
+  {
+    "split_seed": 2,
+    "model": "Classical RBF",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 0.9875,
+    "accuracy": 1.0
+  },
+  {
+    "split_seed": 3,
+    "model": "Exact QSVM",
+    "reps": 1.0,
+    "scale": 0.5,
+    "topology": "ring",
+    "C": 100.0,
+    "cv_mean": 1.0,
+    "accuracy": 1.0
+  },
+  {
+    "split_seed": 3,
+    "model": "Classical LINEAR",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 0.875,
+    "accuracy": 0.95
+  },
+  {
+    "split_seed": 3,
+    "model": "Classical RBF",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 1.0,
+    "accuracy": 1.0
+  },
+  {
+    "split_seed": 4,
+    "model": "Exact QSVM",
+    "reps": 2.0,
+    "scale": 0.25,
+    "topology": "ring",
+    "C": 100.0,
+    "cv_mean": 1.0,
+    "accuracy": 1.0
+  },
+  {
+    "split_seed": 4,
+    "model": "Classical LINEAR",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 0.875,
+    "accuracy": 0.85
+  },
+  {
+    "split_seed": 4,
+    "model": "Classical RBF",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 1.0,
+    "accuracy": 0.95
+  },
+  {
+    "split_seed": 5,
+    "model": "Exact QSVM",
+    "reps": 2.0,
+    "scale": 0.5,
+    "topology": "ring",
+    "C": 1.0,
+    "cv_mean": 1.0,
+    "accuracy": 1.0
+  },
+  {
+    "split_seed": 5,
+    "model": "Classical LINEAR",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 0.8625,
+    "accuracy": 0.85
+  },
+  {
+    "split_seed": 5,
+    "model": "Classical RBF",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 1.0,
+    "accuracy": 1.0
+  },
+  {
+    "split_seed": 6,
+    "model": "Exact QSVM",
+    "reps": 2.0,
+    "scale": 0.25,
+    "topology": "ring",
+    "C": 100.0,
+    "cv_mean": 1.0,
+    "accuracy": 1.0
+  },
+  {
+    "split_seed": 6,
+    "model": "Classical LINEAR",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 0.8875,
+    "accuracy": 0.75
+  },
+  {
+    "split_seed": 6,
+    "model": "Classical RBF",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 1.0,
+    "accuracy": 1.0
+  },
+  {
+    "split_seed": 7,
+    "model": "Exact QSVM",
+    "reps": 2.0,
+    "scale": 0.5,
+    "topology": "ring",
+    "C": 1.0,
+    "cv_mean": 1.0,
+    "accuracy": 1.0
+  },
+  {
+    "split_seed": 7,
+    "model": "Classical LINEAR",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 0.8625,
+    "accuracy": 0.9
+  },
+  {
+    "split_seed": 7,
+    "model": "Classical RBF",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 1.0,
+    "accuracy": 1.0
+  },
+  {
+    "split_seed": 8,
+    "model": "Exact QSVM",
+    "reps": 2.0,
+    "scale": 0.5,
+    "topology": "ring",
+    "C": 1.0,
+    "cv_mean": 1.0,
+    "accuracy": 1.0
+  },
+  {
+    "split_seed": 8,
+    "model": "Classical LINEAR",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 0.9,
+    "accuracy": 0.85
+  },
+  {
+    "split_seed": 8,
+    "model": "Classical RBF",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 1.0,
+    "accuracy": 1.0
+  },
+  {
+    "split_seed": 9,
+    "model": "Exact QSVM",
+    "reps": 2.0,
+    "scale": 0.5,
+    "topology": "ring",
+    "C": 10.0,
+    "cv_mean": 1.0,
+    "accuracy": 1.0
+  },
+  {
+    "split_seed": 9,
+    "model": "Classical LINEAR",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 0.85,
+    "accuracy": 0.9
+  },
+  {
+    "split_seed": 9,
+    "model": "Classical RBF",
+    "reps": NaN,
+    "scale": NaN,
+    "topology": NaN,
+    "C": NaN,
+    "cv_mean": 1.0,
+    "accuracy": 1.0
+  }
+]

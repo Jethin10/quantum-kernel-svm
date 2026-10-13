@@ -1,0 +1,26 @@
+[
+  {
+    "model": "Classical LINEAR",
+    "mean": 0.85,
+    "std": 0.062360956446232345,
+    "min": 0.75,
+    "max": 0.95,
+    "count": 10
+  },
+  {
+    "model": "Classical RBF",
+    "mean": 0.9949999999999999,
+    "std": 0.015811388300841906,
+    "min": 0.95,
+    "max": 1.0,
+    "count": 10
+  },
+  {
+    "model": "Exact QSVM",
+    "mean": 1.0,
+    "std": 0.0,
+    "min": 1.0,
+    "max": 1.0,
+    "count": 10
+  }
+]
