@@ -1,4 +1,7 @@
 * text=auto eol=lf
+*.csv -text
+*.json -text
+*.ipynb -text
 *.png binary
 *.npz binary
 *.qpy binary
