@@ -1,0 +1,1712 @@
+[
+  {
+    "experiment": "routing_control",
+    "processor": "A",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "physical_qubits": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 19,
+    "depth": 45,
+    "cx_count": 22,
+    "one_qubit_gates": 76,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 60,
+      "cx": 22,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "linear"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "A",
+    "strategy": "basic",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "physical_qubits": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 19,
+    "depth": 45,
+    "cx_count": 22,
+    "one_qubit_gates": 76,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 60,
+      "cx": 22,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "linear"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "A",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "physical_qubits": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 25,
+    "depth": 89,
+    "cx_count": 62,
+    "one_qubit_gates": 80,
+    "routing_swaps": 12,
+    "native_gate_counts": {
+      "rz": 64,
+      "cx": 62,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "A",
+    "strategy": "basic",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "physical_qubits": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 25,
+    "depth": 91,
+    "cx_count": 66,
+    "one_qubit_gates": 80,
+    "routing_swaps": 12,
+    "native_gate_counts": {
+      "cx": 66,
+      "rz": 64,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "A",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      1,
+      2,
+      0,
+      3
+    ],
+    "physical_qubits": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 27,
+    "depth": 118,
+    "cx_count": 86,
+    "one_qubit_gates": 88,
+    "routing_swaps": 14,
+    "native_gate_counts": {
+      "cx": 86,
+      "rz": 72,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "full"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "A",
+    "strategy": "basic",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      1,
+      2,
+      0,
+      3
+    ],
+    "physical_qubits": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 27,
+    "depth": 147,
+    "cx_count": 122,
+    "one_qubit_gates": 88,
+    "routing_swaps": 26,
+    "native_gate_counts": {
+      "cx": 122,
+      "rz": 72,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "full"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "depth_control",
+    "processor": "A",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "physical_qubits": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 13,
+    "depth": 39,
+    "cx_count": 24,
+    "one_qubit_gates": 40,
+    "routing_swaps": 4,
+    "native_gate_counts": {
+      "rz": 32,
+      "cx": 24,
+      "sx": 8,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 1,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "depth_control",
+    "processor": "A",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "physical_qubits": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 25,
+    "depth": 89,
+    "cx_count": 62,
+    "one_qubit_gates": 80,
+    "routing_swaps": 12,
+    "native_gate_counts": {
+      "rz": 64,
+      "cx": 62,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "depth_control",
+    "processor": "A",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "physical_qubits": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 37,
+    "depth": 139,
+    "cx_count": 100,
+    "one_qubit_gates": 120,
+    "routing_swaps": 20,
+    "native_gate_counts": {
+      "cx": 100,
+      "rz": 96,
+      "sx": 24,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 3,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "B",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "physical_qubits": 9,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "logical_depth": 19,
+    "depth": 45,
+    "cx_count": 22,
+    "one_qubit_gates": 76,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 60,
+      "cx": 22,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "linear"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "B",
+    "strategy": "basic",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "physical_qubits": 9,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "logical_depth": 19,
+    "depth": 45,
+    "cx_count": 22,
+    "one_qubit_gates": 76,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 60,
+      "cx": 22,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "linear"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "B",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      4,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      4,
+      3
+    ],
+    "physical_qubits": 9,
+    "active_qubits": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "logical_depth": 25,
+    "depth": 63,
+    "cx_count": 30,
+    "one_qubit_gates": 80,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 64,
+      "cx": 30,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "B",
+    "strategy": "basic",
+    "initial_layout": [
+      0,
+      1,
+      4,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      4,
+      3
+    ],
+    "physical_qubits": 9,
+    "active_qubits": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "logical_depth": 25,
+    "depth": 63,
+    "cx_count": 30,
+    "one_qubit_gates": 80,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 64,
+      "cx": 30,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "B",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "measured_qubits": [
+      3,
+      0,
+      1,
+      4
+    ],
+    "physical_qubits": 9,
+    "active_qubits": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "logical_depth": 27,
+    "depth": 91,
+    "cx_count": 68,
+    "one_qubit_gates": 88,
+    "routing_swaps": 8,
+    "native_gate_counts": {
+      "rz": 72,
+      "cx": 68,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "full"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "B",
+    "strategy": "basic",
+    "initial_layout": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "measured_qubits": [
+      0,
+      3,
+      1,
+      4
+    ],
+    "physical_qubits": 9,
+    "active_qubits": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "logical_depth": 27,
+    "depth": 94,
+    "cx_count": 71,
+    "one_qubit_gates": 88,
+    "routing_swaps": 9,
+    "native_gate_counts": {
+      "rz": 72,
+      "cx": 71,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "full"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "depth_control",
+    "processor": "B",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      4,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      4,
+      3
+    ],
+    "physical_qubits": 9,
+    "active_qubits": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "logical_depth": 13,
+    "depth": 31,
+    "cx_count": 14,
+    "one_qubit_gates": 40,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 32,
+      "cx": 14,
+      "sx": 8,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 1,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "depth_control",
+    "processor": "B",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      4,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      4,
+      3
+    ],
+    "physical_qubits": 9,
+    "active_qubits": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "logical_depth": 25,
+    "depth": 63,
+    "cx_count": 30,
+    "one_qubit_gates": 80,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 64,
+      "cx": 30,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "depth_control",
+    "processor": "B",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      4,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      4,
+      3
+    ],
+    "physical_qubits": 9,
+    "active_qubits": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "logical_depth": 37,
+    "depth": 95,
+    "cx_count": 46,
+    "one_qubit_gates": 120,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 96,
+      "cx": 46,
+      "sx": 24,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 3,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "B_reference",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "physical_qubits": 9,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 19,
+    "depth": 45,
+    "cx_count": 22,
+    "one_qubit_gates": 76,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 60,
+      "cx": 22,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "linear"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "B_reference",
+    "strategy": "basic",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "physical_qubits": 9,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 19,
+    "depth": 45,
+    "cx_count": 22,
+    "one_qubit_gates": 76,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 60,
+      "cx": 22,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "linear"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "B_reference",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      6,
+      8
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      6,
+      8
+    ],
+    "physical_qubits": 9,
+    "active_qubits": [
+      0,
+      1,
+      6,
+      8
+    ],
+    "logical_depth": 25,
+    "depth": 63,
+    "cx_count": 30,
+    "one_qubit_gates": 80,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 64,
+      "cx": 30,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "B_reference",
+    "strategy": "basic",
+    "initial_layout": [
+      0,
+      1,
+      6,
+      8
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      6,
+      8
+    ],
+    "physical_qubits": 9,
+    "active_qubits": [
+      0,
+      1,
+      6,
+      8
+    ],
+    "logical_depth": 25,
+    "depth": 63,
+    "cx_count": 30,
+    "one_qubit_gates": 80,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 64,
+      "cx": 30,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "B_reference",
+    "strategy": "sabre",
+    "initial_layout": [
+      1,
+      2,
+      5,
+      6
+    ],
+    "measured_qubits": [
+      2,
+      6,
+      1,
+      5
+    ],
+    "physical_qubits": 9,
+    "active_qubits": [
+      1,
+      2,
+      5,
+      6
+    ],
+    "logical_depth": 27,
+    "depth": 100,
+    "cx_count": 61,
+    "one_qubit_gates": 88,
+    "routing_swaps": 5,
+    "native_gate_counts": {
+      "rz": 72,
+      "cx": 61,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "full"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "B_reference",
+    "strategy": "basic",
+    "initial_layout": [
+      1,
+      2,
+      5,
+      6
+    ],
+    "measured_qubits": [
+      6,
+      2,
+      5,
+      1
+    ],
+    "physical_qubits": 9,
+    "active_qubits": [
+      1,
+      2,
+      5,
+      6
+    ],
+    "logical_depth": 27,
+    "depth": 99,
+    "cx_count": 65,
+    "one_qubit_gates": 88,
+    "routing_swaps": 7,
+    "native_gate_counts": {
+      "rz": 72,
+      "cx": 65,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "full"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "depth_control",
+    "processor": "B_reference",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      6,
+      8
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      6,
+      8
+    ],
+    "physical_qubits": 9,
+    "active_qubits": [
+      0,
+      1,
+      6,
+      8
+    ],
+    "logical_depth": 13,
+    "depth": 31,
+    "cx_count": 14,
+    "one_qubit_gates": 40,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 32,
+      "cx": 14,
+      "sx": 8,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 1,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "depth_control",
+    "processor": "B_reference",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      6,
+      8
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      6,
+      8
+    ],
+    "physical_qubits": 9,
+    "active_qubits": [
+      0,
+      1,
+      6,
+      8
+    ],
+    "logical_depth": 25,
+    "depth": 63,
+    "cx_count": 30,
+    "one_qubit_gates": 80,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 64,
+      "cx": 30,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "depth_control",
+    "processor": "B_reference",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      6,
+      8
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      6,
+      8
+    ],
+    "physical_qubits": 9,
+    "active_qubits": [
+      0,
+      1,
+      6,
+      8
+    ],
+    "logical_depth": 37,
+    "depth": 95,
+    "cx_count": 46,
+    "one_qubit_gates": 120,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 96,
+      "cx": 46,
+      "sx": 24,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 3,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "A_cycle_control",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "physical_qubits": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 19,
+    "depth": 45,
+    "cx_count": 22,
+    "one_qubit_gates": 76,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 60,
+      "cx": 22,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "linear"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "A_cycle_control",
+    "strategy": "basic",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "physical_qubits": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 19,
+    "depth": 45,
+    "cx_count": 22,
+    "one_qubit_gates": 76,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 60,
+      "cx": 22,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "linear"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "A_cycle_control",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "physical_qubits": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 25,
+    "depth": 63,
+    "cx_count": 30,
+    "one_qubit_gates": 80,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 64,
+      "cx": 30,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "A_cycle_control",
+    "strategy": "basic",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "physical_qubits": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 25,
+    "depth": 63,
+    "cx_count": 30,
+    "one_qubit_gates": 80,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 64,
+      "cx": 30,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "A_cycle_control",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "physical_qubits": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 27,
+    "depth": 95,
+    "cx_count": 66,
+    "one_qubit_gates": 88,
+    "routing_swaps": 8,
+    "native_gate_counts": {
+      "rz": 72,
+      "cx": 66,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "full"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "routing_control",
+    "processor": "A_cycle_control",
+    "strategy": "basic",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      3,
+      1,
+      2
+    ],
+    "physical_qubits": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 27,
+    "depth": 84,
+    "cx_count": 68,
+    "one_qubit_gates": 88,
+    "routing_swaps": 8,
+    "native_gate_counts": {
+      "rz": 72,
+      "cx": 68,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "full"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "depth_control",
+    "processor": "A_cycle_control",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "physical_qubits": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 13,
+    "depth": 31,
+    "cx_count": 14,
+    "one_qubit_gates": 40,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 32,
+      "cx": 14,
+      "sx": 8,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 1,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "depth_control",
+    "processor": "A_cycle_control",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "physical_qubits": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 25,
+    "depth": 63,
+    "cx_count": 30,
+    "one_qubit_gates": 80,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 64,
+      "cx": 30,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "depth_control",
+    "processor": "A_cycle_control",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "physical_qubits": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 37,
+    "depth": 95,
+    "cx_count": 46,
+    "one_qubit_gates": 120,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 96,
+      "cx": 46,
+      "sx": 24,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 3,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": NaN,
+    "shots_per_pair": NaN,
+    "total_shots": NaN,
+    "total_cx_executions": NaN
+  },
+  {
+    "experiment": "primary",
+    "processor": "A",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "physical_qubits": 5,
+    "active_qubits": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "logical_depth": 25,
+    "depth": 89,
+    "cx_count": 62,
+    "one_qubit_gates": 80,
+    "routing_swaps": 12,
+    "native_gate_counts": {
+      "rz": 64,
+      "cx": 62,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": 4840.0,
+    "shots_per_pair": 4096.0,
+    "total_shots": 19824640.0,
+    "total_cx_executions": 1229127680.0
+  },
+  {
+    "experiment": "primary",
+    "processor": "B",
+    "strategy": "sabre",
+    "initial_layout": [
+      0,
+      1,
+      4,
+      3
+    ],
+    "measured_qubits": [
+      0,
+      1,
+      4,
+      3
+    ],
+    "physical_qubits": 9,
+    "active_qubits": [
+      0,
+      1,
+      3,
+      4
+    ],
+    "logical_depth": 25,
+    "depth": 63,
+    "cx_count": 30,
+    "one_qubit_gates": 80,
+    "routing_swaps": 0,
+    "native_gate_counts": {
+      "rz": 64,
+      "cx": 30,
+      "sx": 16,
+      "measure": 4,
+      "barrier": 1
+    },
+    "feature_map": {
+      "reps": 2,
+      "scale": 0.25,
+      "topology": "ring"
+    },
+    "evaluated_pairs": 4840.0,
+    "shots_per_pair": 4096.0,
+    "total_shots": 19824640.0,
+    "total_cx_executions": 594739200.0
+  }
+]

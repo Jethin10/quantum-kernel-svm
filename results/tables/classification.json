@@ -1,0 +1,379 @@
+[
+  {
+    "model": "Classical LINEAR",
+    "accuracy": 0.85,
+    "balanced_accuracy": 0.85,
+    "f1": 0.8235294117647058,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        3,
+        7
+      ]
+    ],
+    "cv_mean": 0.9,
+    "parameters": {
+      "svc__C": 1.0
+    },
+    "selection_and_fit_seconds": 0.09444669999993494,
+    "support_vectors": NaN,
+    "C": NaN,
+    "kernel_preparation_seconds": NaN,
+    "svm_fit_seconds": NaN,
+    "svm_prediction_seconds": NaN,
+    "retained_rank": NaN,
+    "threshold": NaN,
+    "training_correction_frobenius": NaN,
+    "cross_correction_frobenius": NaN,
+    "accuracy_wilson_95": NaN
+  },
+  {
+    "model": "Classical RBF",
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "f1": 1.0,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "cv_mean": 1.0,
+    "parameters": {
+      "svc__C": 1.0,
+      "svc__gamma": 10.0
+    },
+    "selection_and_fit_seconds": 0.2642433000000892,
+    "support_vectors": NaN,
+    "C": NaN,
+    "kernel_preparation_seconds": NaN,
+    "svm_fit_seconds": NaN,
+    "svm_prediction_seconds": NaN,
+    "retained_rank": NaN,
+    "threshold": NaN,
+    "training_correction_frobenius": NaN,
+    "cross_correction_frobenius": NaN,
+    "accuracy_wilson_95": NaN
+  },
+  {
+    "model": "Exact QSVM",
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "f1": 1.0,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "cv_mean": 1.0,
+    "parameters": NaN,
+    "selection_and_fit_seconds": NaN,
+    "support_vectors": 11.0,
+    "C": 100.0,
+    "kernel_preparation_seconds": 2.0000015865662135e-07,
+    "svm_fit_seconds": 0.0006647000000157277,
+    "svm_prediction_seconds": 0.00012079999987690826,
+    "retained_rank": NaN,
+    "threshold": NaN,
+    "training_correction_frobenius": NaN,
+    "cross_correction_frobenius": NaN,
+    "accuracy_wilson_95": NaN
+  },
+  {
+    "model": "Ideal shot QSVM",
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "f1": 1.0,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "cv_mean": NaN,
+    "parameters": NaN,
+    "selection_and_fit_seconds": NaN,
+    "support_vectors": 19.0,
+    "C": 100.0,
+    "kernel_preparation_seconds": 0.0025067999999919266,
+    "svm_fit_seconds": 0.0006969000000935921,
+    "svm_prediction_seconds": 0.00014220000002751476,
+    "retained_rank": 46.0,
+    "threshold": 1e-08,
+    "training_correction_frobenius": 0.30949254192439635,
+    "cross_correction_frobenius": 0.1960541865873177,
+    "accuracy_wilson_95": NaN
+  },
+  {
+    "model": "A noisy raw",
+    "accuracy": 0.95,
+    "balanced_accuracy": 0.95,
+    "f1": 0.9473684210526315,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        1,
+        9
+      ]
+    ],
+    "cv_mean": NaN,
+    "parameters": NaN,
+    "selection_and_fit_seconds": NaN,
+    "support_vectors": 15.0,
+    "C": 100.0,
+    "kernel_preparation_seconds": 1.0000030670198612e-07,
+    "svm_fit_seconds": 0.0008166000002347573,
+    "svm_prediction_seconds": 0.00015320000011342927,
+    "retained_rank": NaN,
+    "threshold": NaN,
+    "training_correction_frobenius": NaN,
+    "cross_correction_frobenius": NaN,
+    "accuracy_wilson_95": [
+      0.763868806553258,
+      0.9911185511992047
+    ]
+  },
+  {
+    "model": "A noisy PSD",
+    "accuracy": 0.9,
+    "balanced_accuracy": 0.9,
+    "f1": 0.8888888888888888,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        2,
+        8
+      ]
+    ],
+    "cv_mean": NaN,
+    "parameters": NaN,
+    "selection_and_fit_seconds": NaN,
+    "support_vectors": 24.0,
+    "C": 100.0,
+    "kernel_preparation_seconds": 2.0000015865662135e-07,
+    "svm_fit_seconds": 0.0007065999998303596,
+    "svm_prediction_seconds": 0.00012689999994108803,
+    "retained_rank": 46.0,
+    "threshold": 1e-08,
+    "training_correction_frobenius": 0.3548451229379902,
+    "cross_correction_frobenius": 0.2010634813195218,
+    "accuracy_wilson_95": [
+      0.6989663547715128,
+      0.9721335187862319
+    ]
+  },
+  {
+    "model": "A noise expectation PSD",
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "f1": 1.0,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "cv_mean": NaN,
+    "parameters": NaN,
+    "selection_and_fit_seconds": NaN,
+    "support_vectors": 11.0,
+    "C": 100.0,
+    "kernel_preparation_seconds": 1.9999970390927047e-07,
+    "svm_fit_seconds": 0.0006859999998596322,
+    "svm_prediction_seconds": 0.00010979999979099375,
+    "retained_rank": 50.0,
+    "threshold": 1e-08,
+    "training_correction_frobenius": 0.004549270758540824,
+    "cross_correction_frobenius": 0.002721318847751101,
+    "accuracy_wilson_95": [
+      0.8388748419471806,
+      1.0
+    ]
+  },
+  {
+    "model": "A readout-mitigated PSD",
+    "accuracy": 0.9,
+    "balanced_accuracy": 0.9,
+    "f1": 0.8888888888888888,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        2,
+        8
+      ]
+    ],
+    "cv_mean": NaN,
+    "parameters": NaN,
+    "selection_and_fit_seconds": NaN,
+    "support_vectors": 24.0,
+    "C": 100.0,
+    "kernel_preparation_seconds": 1.9999970390927047e-07,
+    "svm_fit_seconds": 0.0007109000002856192,
+    "svm_prediction_seconds": 0.00011960000028921058,
+    "retained_rank": 46.0,
+    "threshold": 1e-08,
+    "training_correction_frobenius": 0.37182011448274294,
+    "cross_correction_frobenius": 0.210617036271265,
+    "accuracy_wilson_95": [
+      0.6989663547715128,
+      0.9721335187862319
+    ]
+  },
+  {
+    "model": "B noisy raw",
+    "accuracy": 0.95,
+    "balanced_accuracy": 0.95,
+    "f1": 0.9473684210526315,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        1,
+        9
+      ]
+    ],
+    "cv_mean": NaN,
+    "parameters": NaN,
+    "selection_and_fit_seconds": NaN,
+    "support_vectors": 13.0,
+    "C": 100.0,
+    "kernel_preparation_seconds": 3.000000106112566e-07,
+    "svm_fit_seconds": 0.0015105000002222368,
+    "svm_prediction_seconds": 0.0002206999997724779,
+    "retained_rank": NaN,
+    "threshold": NaN,
+    "training_correction_frobenius": NaN,
+    "cross_correction_frobenius": NaN,
+    "accuracy_wilson_95": [
+      0.763868806553258,
+      0.9911185511992047
+    ]
+  },
+  {
+    "model": "B noisy PSD",
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "f1": 1.0,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "cv_mean": NaN,
+    "parameters": NaN,
+    "selection_and_fit_seconds": NaN,
+    "support_vectors": 21.0,
+    "C": 100.0,
+    "kernel_preparation_seconds": 4.000003173132427e-07,
+    "svm_fit_seconds": 0.0014203000000634347,
+    "svm_prediction_seconds": 0.00014719999990120414,
+    "retained_rank": 46.0,
+    "threshold": 1e-08,
+    "training_correction_frobenius": 0.35027154467935306,
+    "cross_correction_frobenius": 0.2009322990601195,
+    "accuracy_wilson_95": [
+      0.8388748419471806,
+      1.0
+    ]
+  },
+  {
+    "model": "B noise expectation PSD",
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "f1": 1.0,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "cv_mean": NaN,
+    "parameters": NaN,
+    "selection_and_fit_seconds": NaN,
+    "support_vectors": 11.0,
+    "C": 100.0,
+    "kernel_preparation_seconds": 3.000000106112566e-07,
+    "svm_fit_seconds": 0.0012863000001743785,
+    "svm_prediction_seconds": 0.00022570000010091462,
+    "retained_rank": 50.0,
+    "threshold": 1e-08,
+    "training_correction_frobenius": 0.0056985796790036975,
+    "cross_correction_frobenius": 0.003423200790401624,
+    "accuracy_wilson_95": [
+      0.8388748419471806,
+      1.0
+    ]
+  },
+  {
+    "model": "B readout-mitigated PSD",
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "f1": 1.0,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "cv_mean": NaN,
+    "parameters": NaN,
+    "selection_and_fit_seconds": NaN,
+    "support_vectors": 21.0,
+    "C": 100.0,
+    "kernel_preparation_seconds": 3.000000106112566e-07,
+    "svm_fit_seconds": 0.00146199999971941,
+    "svm_prediction_seconds": 0.0002183000001423352,
+    "retained_rank": 46.0,
+    "threshold": 1e-08,
+    "training_correction_frobenius": 0.36728625787043395,
+    "cross_correction_frobenius": 0.21069299138187236,
+    "accuracy_wilson_95": [
+      0.8388748419471806,
+      1.0
+    ]
+  }
+]

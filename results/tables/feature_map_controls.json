@@ -1,0 +1,209 @@
+[
+  {
+    "reps": 1,
+    "scale": 0.25,
+    "topology": "linear",
+    "accuracy": 0.9,
+    "balanced_accuracy": 0.9,
+    "f1": 0.8888888888888888,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        2,
+        8
+      ]
+    ],
+    "support_vectors": 18,
+    "C": 100.0,
+    "kernel_preparation_seconds": 3.999998625658918e-07,
+    "svm_fit_seconds": 0.0018602000000100816,
+    "svm_prediction_seconds": 0.00021460000016304548
+  },
+  {
+    "reps": 2,
+    "scale": 0.25,
+    "topology": "linear",
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "f1": 1.0,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "support_vectors": 11,
+    "C": 100.0,
+    "kernel_preparation_seconds": 9.999985195463523e-08,
+    "svm_fit_seconds": 0.0009370000002490997,
+    "svm_prediction_seconds": 0.000146500000028027
+  },
+  {
+    "reps": 3,
+    "scale": 0.25,
+    "topology": "linear",
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "f1": 1.0,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "support_vectors": 12,
+    "C": 100.0,
+    "kernel_preparation_seconds": 3.000000106112566e-07,
+    "svm_fit_seconds": 0.0015454000003956025,
+    "svm_prediction_seconds": 0.00028599999996004044
+  },
+  {
+    "reps": 1,
+    "scale": 0.25,
+    "topology": "ring",
+    "accuracy": 0.95,
+    "balanced_accuracy": 0.95,
+    "f1": 0.9473684210526315,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        1,
+        9
+      ]
+    ],
+    "support_vectors": 17,
+    "C": 100.0,
+    "kernel_preparation_seconds": 1.9999970390927047e-07,
+    "svm_fit_seconds": 0.001519099999768514,
+    "svm_prediction_seconds": 0.00032579999970039353
+  },
+  {
+    "reps": 2,
+    "scale": 0.25,
+    "topology": "ring",
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "f1": 1.0,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "support_vectors": 11,
+    "C": 100.0,
+    "kernel_preparation_seconds": 1.9999970390927047e-07,
+    "svm_fit_seconds": 0.0008590000002186571,
+    "svm_prediction_seconds": 0.00012719999995169928
+  },
+  {
+    "reps": 3,
+    "scale": 0.25,
+    "topology": "ring",
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "f1": 1.0,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "support_vectors": 11,
+    "C": 100.0,
+    "kernel_preparation_seconds": 9.999985195463523e-08,
+    "svm_fit_seconds": 0.0008940999996411847,
+    "svm_prediction_seconds": 0.00013760000001639128
+  },
+  {
+    "reps": 1,
+    "scale": 0.25,
+    "topology": "full",
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "f1": 1.0,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "support_vectors": 17,
+    "C": 100.0,
+    "kernel_preparation_seconds": 3.000000106112566e-07,
+    "svm_fit_seconds": 0.0017763000000741158,
+    "svm_prediction_seconds": 0.0002731999998104584
+  },
+  {
+    "reps": 2,
+    "scale": 0.25,
+    "topology": "full",
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "f1": 1.0,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "support_vectors": 11,
+    "C": 100.0,
+    "kernel_preparation_seconds": 2.0000015865662135e-07,
+    "svm_fit_seconds": 0.000978199999735807,
+    "svm_prediction_seconds": 0.00015249999978550477
+  },
+  {
+    "reps": 3,
+    "scale": 0.25,
+    "topology": "full",
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "f1": 1.0,
+    "confusion_matrix": [
+      [
+        10,
+        0
+      ],
+      [
+        0,
+        10
+      ]
+    ],
+    "support_vectors": 11,
+    "C": 100.0,
+    "kernel_preparation_seconds": 1.9999970390927047e-07,
+    "svm_fit_seconds": 0.0008066000000326312,
+    "svm_prediction_seconds": 0.00012830000014218967
+  }
+]
