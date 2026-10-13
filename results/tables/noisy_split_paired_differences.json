@@ -1,0 +1,82 @@
+[
+  {
+    "processor": "A",
+    "split_seed": 0,
+    "accuracy_difference": 0.0,
+    "kernel_rmse_reduction": 0.02269977716670433,
+    "cx_reduction": 14,
+    "cx_reduction_percent": 58.333333333333336
+  },
+  {
+    "processor": "A",
+    "split_seed": 1,
+    "accuracy_difference": 0.050000000000000044,
+    "kernel_rmse_reduction": 0.052278017215852804,
+    "cx_reduction": 32,
+    "cx_reduction_percent": 51.61290322580645
+  },
+  {
+    "processor": "A",
+    "split_seed": 2,
+    "accuracy_difference": 0.0,
+    "kernel_rmse_reduction": 0.03125269175628632,
+    "cx_reduction": 32,
+    "cx_reduction_percent": 51.61290322580645
+  },
+  {
+    "processor": "A",
+    "split_seed": 3,
+    "accuracy_difference": 0.0,
+    "kernel_rmse_reduction": 0.02266570002087446,
+    "cx_reduction": 14,
+    "cx_reduction_percent": 58.333333333333336
+  },
+  {
+    "processor": "A",
+    "split_seed": 4,
+    "accuracy_difference": 0.050000000000000044,
+    "kernel_rmse_reduction": 0.052848872734429134,
+    "cx_reduction": 32,
+    "cx_reduction_percent": 51.61290322580645
+  },
+  {
+    "processor": "B",
+    "split_seed": 0,
+    "accuracy_difference": -0.050000000000000044,
+    "kernel_rmse_reduction": 0.011210513488103688,
+    "cx_reduction": 6,
+    "cx_reduction_percent": 42.857142857142854
+  },
+  {
+    "processor": "B",
+    "split_seed": 1,
+    "accuracy_difference": 0.050000000000000044,
+    "kernel_rmse_reduction": 0.013148825429828273,
+    "cx_reduction": 6,
+    "cx_reduction_percent": 20.0
+  },
+  {
+    "processor": "B",
+    "split_seed": 2,
+    "accuracy_difference": 0.0,
+    "kernel_rmse_reduction": 0.007469738169423527,
+    "cx_reduction": 6,
+    "cx_reduction_percent": 20.0
+  },
+  {
+    "processor": "B",
+    "split_seed": 3,
+    "accuracy_difference": 0.0,
+    "kernel_rmse_reduction": 0.011303679956430931,
+    "cx_reduction": 6,
+    "cx_reduction_percent": 42.857142857142854
+  },
+  {
+    "processor": "B",
+    "split_seed": 4,
+    "accuracy_difference": 0.0,
+    "kernel_rmse_reduction": 0.013250674399135937,
+    "cx_reduction": 6,
+    "cx_reduction_percent": 20.0
+  }
+]

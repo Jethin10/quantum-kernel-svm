@@ -13,14 +13,14 @@ def package():
     verification=verify()
     target=ROOT/'submission'/'qff_ps_q2_submission.zip'
     target.parent.mkdir(exist_ok=True)
-    directories=['src','processors','data','results','assets','tests','scripts','.github','research','docs']
+    directories=['src','processors','data','results','assets','tests','scripts','.github','research','docs','frontend']
     files=[ROOT/name for name in [
         'README.md','report.md','main.ipynb','requirements.txt','requirements.lock.txt',
         '.gitignore','.gitattributes','pytest.ini',
     ] if (ROOT/name).is_file()]
     for directory in directories:
         files.extend(path for path in (ROOT/directory).rglob('*') if path.is_file()
-                     and not any(part in {'__pycache__','.cache'} for part in path.parts))
+                     and not any(part in {'__pycache__','.cache','.rivet','.cursor','dist'} for part in path.parts))
     with zipfile.ZipFile(target,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=6) as archive:
         for path in sorted(files):
             archive.write(path,'qff_ps_q2/'+path.relative_to(ROOT).as_posix())

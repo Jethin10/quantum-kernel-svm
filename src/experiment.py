@@ -191,10 +191,15 @@ def run_experiment(root=None, shots=4096, repeats=20, batch_size=128):
     enhancements = explore(root,spec,C,shots,repeats,batch_size)
     from .design_controls import evaluate_cost_choice
     cost_aware = evaluate_cost_choice(root,shots,repeats,batch_size)
+    from .robustness import run_noisy_robustness
+    noisy_robustness = run_noisy_robustness(root,shots,repeats,batch_size)
+    variants = [load_processor(p)[0] for p in sorted((root/'processors/variants').glob('*.json'))]
+    viz.topology_atlas(variants,spec,root/'results/figures/topology_atlas.png')
     manifest = {
         "problem": "PS-Q2", "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "enhancements": enhancements,
         "cost_aware":cost_aware,
+        "noisy_robustness":noisy_robustness,
         "dataset": {"n_samples":100,"noise":0.1,"random_state":42},
         "split": {"train":80,"test":20,"stratified":True,"seed":42},
         "feature_map":spec.to_dict(), "C":C,
@@ -220,6 +225,8 @@ def run_experiment(root=None, shots=4096, repeats=20, batch_size=128):
     write_json(root / "results" / "manifest.json", manifest)
     from .documentation import write_documents
     write_documents(root, manifest, accuracy_rows, resource_rows, diagnostic_rows, sensitivity_table)
+    from scripts.export_frontend import export
+    export(root)
     checksums = {}
     for folder in ["src", "processors", "data", "results/tables", "results/figures"]:
         for path in sorted((root / folder).rglob("*")):

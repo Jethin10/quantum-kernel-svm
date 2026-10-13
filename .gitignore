@@ -5,3 +5,6 @@ __pycache__/
 tmp/
 *.pyc
 results/.cache/
+frontend/.rivet/
+frontend/.cursor/
+frontend/dist/

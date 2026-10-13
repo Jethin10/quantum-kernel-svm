@@ -1,13 +1,13 @@
 {
   "path": "C:\\Sandeep_hackathon_quantum\\submission\\qff_ps_q2_submission.zip",
-  "files": 116,
-  "bytes": 14373741,
-  "sha256": "cbdf8f3c53aecd028bb66631398af5c7a5a70c6c7ab7aefc9cedb3696c0d84d3",
+  "files": 158,
+  "bytes": 31958462,
+  "sha256": "6930cdcde39291906d6cbf73e2225fd5daf3c0ff289c9f2d12c5e5fd473644d2",
   "verification": {
     "passed": true,
-    "required_files": 25,
+    "required_files": 29,
     "executed_code_cells": 8,
-    "artifact_checksums": 80,
+    "artifact_checksums": 111,
     "official_shots": 4096
   }
 }

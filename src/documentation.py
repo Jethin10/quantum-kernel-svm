@@ -35,6 +35,24 @@ def write_documents(root, manifest, accuracy_rows, resource_rows, diagnostic_row
     absolute_table += '\n'.join('| '+' | '.join(f'{r[c]:.4f}' if c in ['kernel_rmse','aer_seconds'] else f'{r[c]:.0%}' if c=='accuracy' else str(r[c]) for c in columns)+' |' for _,r in measured.iterrows())
     cost_choice = pd.read_csv(root/'results/tables/cost_aware_measurements.csv')
     cost_rows = '\n'.join(f"| {r.processor} | {r.depth} | {r.cx_count} | {r.accuracy:.0%} | {r.kernel_rmse_vs_own_exact:.4f} |" for _,r in cost_choice.iterrows())
+    noisy = pd.read_csv(root/'results/tables/noisy_split_robustness_summary.csv')
+    paired = pd.read_csv(root/'results/tables/noisy_split_paired_differences.csv')
+    noisy_table = '| Processor | Compiler | Mean accuracy ± split SD | Range | Mean raw RMSE | Mean CX |\n|---|---|---:|---:|---:|---:|\n'
+    noisy_table += '\n'.join(f'| {r.processor} | {r.compiler} | {r.accuracy_mean:.1%} ± {r.accuracy_std:.1%} | {r.accuracy_min:.0%}–{r.accuracy_max:.0%} | {r.kernel_rmse_mean:.4f} | {r.cx_mean:.1f} |' for _,r in noisy.iterrows())
+    noisy_section = f"""## Paired noisy robustness across five partitions
+
+{noisy_table}
+
+Five predeclared split seeds (0–4) each use their own training-only five-fold feature-map/C selection and training-fitted scaler. Within each split, A/B and baseline/native-parity conditions freeze the same ideal kernel and C. We acquire **20 additional noisy kernels, 96,800 circuits at 4,096 shots**. Full histograms, split indices, scaled points, exact references, raw/repaired kernels and predictions are retained in [the noisy robustness evidence](data/processed/noisy_robustness/).
+
+Raw kernel RMSE decreases in **{int((paired.kernel_rmse_reduction>0).sum())} of 10** paired processor/split comparisons. A's mean seeded accuracy changes from 97% to 99%; B's remains 96%. The B baseline and native compiler both range from 85% to 100%. Lower distortion is consistent here; accuracy improvement is not universal, and the higher-connectivity graph does not consistently outperform A.
+
+![Six synthetic topology diagrams](results/figures/topology_atlas.png)
+![Paired noisy split study](results/figures/noisy_split_robustness.png)
+
+[Per-split results](results/tables/noisy_split_robustness.csv), [paired differences](results/tables/noisy_split_paired_differences.csv), and [400 conditional shot-resampling trials](results/tables/noisy_split_resampling.csv) preserve the full comparison. Split standard deviations describe overlapping partitions of the same prescribed dataset; they are not confidence intervals for independent datasets. Resampling uses fixed noisy probabilities and is not new hardware acquisition. This study establishes neither statistical significance nor population superiority.
+
+"""
     exploration = f"""## Architecture exploration and exact circuit optimization
 
 {absolute_table}
@@ -55,7 +73,7 @@ See [the compiler derivation](docs/compiler_method.md) for explicit phase equati
 
 For the frozen two-layer circuit, parity synthesis reduces A from 62 to 30 CX gates and depth 89 to 52; B falls from 30 to 24 CX and depth 63 to 52. Thus B's CX advantage over A shrinks from 51.6% under baseline routing to 20% after exact synthesis. Connectivity and compiler choice jointly determine cost. A naive routing comparison can overstate the irreducible topology penalty.
 
-[Twenty paired shot-resampling trials](results/tables/compiler_resampling_summary.csv) cover every measured circuit variant. [Ten predeclared split seeds](results/tables/nested_split_robustness.csv) repeat training-only model selection and compare exact QSVM with independently tuned classical baselines. These splits reuse the prescribed dataset, and the robustness study uses exact kernels; it does not establish noisy-device or population superiority.
+[Twenty paired shot-resampling trials](results/tables/compiler_resampling_summary.csv) cover every measured circuit variant. [Ten predeclared split seeds](results/tables/nested_split_robustness.csv) repeat training-only model selection and compare exact QSVM with independently tuned classical baselines. These exact splits reuse the prescribed dataset. The separate five-split noisy study measures synthetic execution robustness; neither study establishes physical-device or population superiority.
 
 [Training-only cost/quality controls](results/tables/training_cost_quality.csv) compare linear/ring/full interactions at repetitions 1/2/3 with C selected inside the training set. Stars mark the observed CX-versus-CV Pareto frontier, not a proven global optimum. The primary model remains frozen. [Encoding controls](results/tables/encoding_training_control.csv) compare repeated coordinates with `(a,b,(a+b)/2,(a-b)/2)` using fold-fitted scaling and no held-out labels. These are post-selection diagnostics at the primary angle scale, not unbiased estimates of a newly chosen model.
 
@@ -264,9 +282,11 @@ Only A and B are implemented, as required for Phase 1. No access to a cloud quan
 - [Aer density-matrix simulation](https://qiskit.github.io/qiskit-aer/stubs/qiskit_aer.AerSimulator.html).
 - [Aer depolarizing channel](https://qiskit.github.io/qiskit-aer/stubs/qiskit_aer.noise.depolarizing_error.html).
 """
-    acquisitions = 2 + manifest['enhancements']['additional_measured_kernels'] + manifest['cost_aware']['measured_kernels']
+    acquisitions = 2 + manifest['enhancements']['additional_measured_kernels'] + manifest['cost_aware']['measured_kernels'] + manifest['noisy_robustness']['measured_kernels']
+    website = "## Interactive experiment explorer\n\nExplore the [public GitHub Pages website](https://jethin10.github.io/quantum-kernel-svm/): switch measured processor/compiler conditions, inspect the kernel, explore six topologies, and compare paired noisy splits. It displays saved scientific artifacts; quantum simulation runs in Python. See [website setup and design](docs/frontend_design.md).\n\n"
+    readme = readme.replace('## Baseline measured result',noisy_section+website+'## Baseline measured result')
     readme = readme.replace('Pinned dependencies and', f"The measured complete pipeline runtime was {manifest['total_pipeline_seconds']:.1f} seconds with the disclosed cache state. A fresh run acquires {acquisitions} kernels, {4840*acquisitions:,} circuits in total, and also repeats exact model selection on ten splits. Allow several minutes on a desktop CPU; timing depends on CPU and thread settings.\n\nPinned dependencies and")
-    report = report.replace('## Workload and timing definitions',exploration+'## Workload and timing definitions').replace('(QFF_Phase_1_Master_Guide.pdf)','(docs/QFF_Phase_1_Master_Guide.pdf)')
+    report = report.replace('## Workload and timing definitions',exploration+noisy_section+'## Workload and timing definitions').replace('(QFF_Phase_1_Master_Guide.pdf)','(docs/QFF_Phase_1_Master_Guide.pdf)')
     (root / "README.md").write_text(readme, encoding="utf-8")
     (root / "report.md").write_text(report, encoding="utf-8")
     (root / "docs").mkdir(exist_ok=True)
@@ -285,8 +305,8 @@ Only A and B are implemented, as required for Phase 1. No access to a cloud quan
 - [x] Architecture controls, shot sensitivity, and disclosed readout correction.
 - [x] Required repository structure, notebook, pinned dependencies, report, plots.
 - [ ] Verify `python -m pytest -q` and notebook execution on the final files.
-- [ ] Publish the repository publicly and verify the notebook/figures render on GitHub.
+- [x] Public repository available at https://github.com/Jethin10/quantum-kernel-svm.
 - [ ] Submit the public GitHub URL at https://qffsrmap2026.com/learning/hackathon.
 
-The guide lists 14 October 2026, 23:59 IST as the deadline. Tests and notebook execution have their own machine-readable verification artifacts; do not tick them based only on file existence. Publication and portal submission require separate confirmation.
+The guide lists 14 October 2026, 23:59 IST as the deadline. Tests and notebook execution have machine-readable verification artifacts; `scripts/verify_submission.py` marks final verification only after validating them. The participant handles portal submission separately.
 """, encoding="utf-8")

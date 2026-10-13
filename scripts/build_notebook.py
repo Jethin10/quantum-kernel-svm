@@ -19,7 +19,7 @@ def build():
 
 This notebook runs the prescribed moons classification task and compares the same fidelity kernel on a five-qubit chain and a participant-designed nine-qubit lattice. The quantum circuits estimate similarities; a classical support vector machine learns the classifier. All reported results come from saved measurements or explicitly labeled exact simulation.
 
-Run all cells in a Python environment installed from `requirements.lock.txt`. The direct dependency list is also provided as `requirements.txt`. Execution is deterministic within the pinned stack and batch settings. The full run measures ten kernels, each containing 4,840 pairs at 4,096 shots, including diagonal diagnostics. Later runs reuse matching batch checkpoints; delete `results/.cache/` to acquire fresh simulated counts. See `report.md` for assumptions, controls, and limitations.
+Run all cells in a Python environment installed from `requirements.lock.txt`. The direct dependency list is also provided as `requirements.txt`. Execution is deterministic within the pinned stack and batch settings. The full run measures thirty kernels, each containing 4,840 pairs at 4,096 shots, including diagonal diagnostics: ten primary/secondary controls and twenty paired noisy robustness kernels. Later runs reuse matching batch checkpoints; delete `results/.cache/` to acquire fresh simulated counts. See `report.md` for assumptions, controls, and limitations.
 """),
         code("""from pathlib import Path
 import sys
@@ -117,6 +117,10 @@ display(pd.read_csv(ROOT / 'results/tables/cost_aware_measurements.csv'))
 display(pd.read_csv(ROOT / 'results/tables/cost_aware_resampling_summary.csv'))
 robustness = pd.read_csv(ROOT / 'results/tables/nested_split_robustness.csv')
 display(robustness.groupby('model').accuracy.agg(['mean','std','min','max']))
+display(Image(filename=str(ROOT / 'results/figures/topology_atlas.png')))
+display(pd.read_csv(ROOT / 'results/tables/noisy_split_robustness_summary.csv'))
+display(pd.read_csv(ROOT / 'results/tables/noisy_split_paired_differences.csv'))
+display(Image(filename=str(ROOT / 'results/figures/noisy_split_robustness.png')))
 """),
         md("""## 8. Verify the generated evidence
 
@@ -155,7 +159,7 @@ def execute(path):
     notebook = nbf.read(path,as_version=4)
     manager = KernelManager(kernel_name='python3')
     manager.kernel_spec.argv = [sys.executable, '-m', 'ipykernel_launcher', '-f', '{connection_file}']
-    client = NotebookClient(notebook,km=manager,timeout=1200,
+    client = NotebookClient(notebook,km=manager,timeout=1800,
                             resources={'metadata':{'path':str(ROOT)}})
     def progress(cell,cell_index):
         print(f"Executing cell {cell_index+1}/{len(notebook.cells)} ({cell.cell_type})",flush=True)

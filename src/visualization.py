@@ -51,6 +51,45 @@ def architectures(configs, layouts, path):
     save(fig, path)
 
 
+def topology_positions(config):
+    """Stable graph coordinates shared by the atlas and browser explorer."""
+    name = config['name']
+    if name == 'A':
+        return {i: (i,0) for i in range(5)}
+    if name == 'A_tree':
+        return {0:(0,0),1:(1,0),2:(2,1),3:(2,-1),4:(3,-1)}
+    if name == 'A_cycle':
+        return {0:(0,1),1:(1,1),2:(1,0),3:(0,0),4:(-1,0)}
+    if name == 'B':
+        return {i:(i%3,-(i//3)) for i in range(9)}
+    if name == 'B_tree':
+        return {0:(0,2),1:(-1,1),2:(1,1),3:(-1.5,0),4:(-.5,0),
+                5:(.5,0),6:(1.5,0),7:(.5,-1),8:(1.5,-1)}
+    return {int(i):tuple(map(float,p)) for i,p in nx.kamada_kawai_layout(nx.Graph(config['edges'])).items()}
+
+
+def topology_atlas(configs,spec,path):
+    from .routing import distance_layout
+    names = ['A','A_tree','A_cycle','B','B_reference','B_tree']
+    lookup = {c['name']:c for c in configs}
+    fig,axes = plt.subplots(2,3,figsize=(12,7),constrained_layout=True)
+    for ax,name in zip(axes.flat,names):
+        config = lookup[name]
+        graph = nx.Graph(config['edges'])
+        active = distance_layout(config,spec)
+        pos = topology_positions(config)
+        nx.draw_networkx(graph,pos,ax=ax,node_size=470,width=2,
+            node_color=[BLUE if q in active else '#d8e0e9' for q in graph.nodes],
+            edge_color='#93a1b2',with_labels=False)
+        for q,(x,y) in pos.items():
+            ax.text(x,y,str(q),ha='center',va='center',color='white' if q in active else INK)
+        ax.set_title(f'{name} · {config["num_qubits"]} qubits · {len(config["edges"])} edges')
+        ax.margins(.3); ax.axis('off')
+        ax.text(.5,-.06,f'Logical 0–3 placement: {active}',transform=ax.transAxes,ha='center',fontsize=9)
+    fig.suptitle('Six synthetic connectivity graphs · blue marks ring placement',fontsize=15)
+    save(fig,path)
+
+
 def feature_circuit(spec,path):
     from matplotlib.patches import FancyBboxPatch
     fig,axs=plt.subplots(2,1,figsize=(11,4.5),height_ratios=[3,1],constrained_layout=True)

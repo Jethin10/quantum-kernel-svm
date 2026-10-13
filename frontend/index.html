@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Explore a four-qubit fidelity kernel SVM: measured quantum kernels, exact circuit optimization, six processor graphs and paired noisy robustness experiments.">
+  <meta name="theme-color" content="#142a3b">
+  <title>Quantum Kernel Lab · PS-Q2</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to experiment</a>
+<aside class="sidebar">
+  <a class="brand" href="#experiment"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 12h24M8 28h24M12 8v24M28 8v24"/><circle cx="12" cy="12" r="4"/><circle cx="28" cy="28" r="4"/></svg><span>Quantum<br>Kernel Lab</span></a>
+  <p class="sidebar-label">Research workspace</p>
+  <nav aria-label="Main navigation">
+    <a href="#experiment" class="nav-link active"><span>01</span> Experiment</a>
+    <a href="#architectures" class="nav-link"><span>02</span> Architectures</a>
+    <a href="#robustness" class="nav-link"><span>03</span> Robustness</a>
+    <a href="#method" class="nav-link"><span>04</span> Method & evidence</a>
+  </nav>
+  <div class="sidebar-bottom"><span class="signal"></span> Reproducible simulation<p>Qiskit Fall Fest 2026<br>Phase 1 · PS-Q2</p><a href="https://github.com/Jethin10/quantum-kernel-svm">View repository ↗</a></div>
+</aside>
+<main id="main">
+  <header class="topbar"><span>Four-qubit fidelity kernel / Classical SVM</span><a href="https://github.com/Jethin10/quantum-kernel-svm/blob/main/main.ipynb">Executed notebook ↗</a></header>
+  <div id="status" class="load-status" role="status">Loading verified experiment artifacts…</div>
+  <div id="error" class="error" role="alert" hidden><h2>Experiment data could not load</h2><p>Check your connection, then retry. The full evidence remains available in the repository.</p><button id="retry">Retry loading</button></div>
+  <div id="workspace" hidden>
+  <section id="experiment" aria-labelledby="experiment-title">
+    <div class="section-intro"><div><p class="eyebrow">01 / The experiment</p><h1 id="experiment-title">Similarity, measured<br>one quantum circuit at a time.</h1><p class="intro-copy">Two moons. Four logical qubits. One controlled comparison of connectivity, circuit cost, and noise.</p></div><div class="equation" aria-label="Kernel equals the squared absolute overlap of phi x and phi x prime"><span>K(x, x′)</span><strong>|⟨φ(x)|φ(x′)⟩|²</strong><small>Compute → uncompute → count 0000</small></div></div>
+    <div class="controls"><div><label for="processor">Processor</label><select id="processor"><option value="A">A · 5-qubit chain</option><option value="B">B · 9-qubit square</option></select></div><div><label for="compiler">Circuit compiler</label><select id="compiler"><option value="baseline">Baseline · SABRE</option><option value="fused_sabre">Diagonal fusion · SABRE</option><option value="fused_parity" selected>Native parity synthesis</option></select></div><p><span class="dot"></span> Saved Aer measurements<span class="control-note">4,096 shots per pair · holdout seed 42</span></p></div>
+    <div id="metrics" class="metrics" aria-live="polite"></div>
+    <div class="experiment-grid">
+      <article class="panel"><div class="panel-heading"><div><span class="figure-number">FIG. 01</span><h2>Measured kernel</h2></div><span class="tag">80 × 80 training pairs</span></div><div class="matrix-wrap"><span class="axis-y">Training sample x</span><canvas id="heatmap" width="480" height="480" aria-label="Raw noisy training kernel. Use the row and column controls below to inspect a pair."></canvas><span class="axis-x">Training sample x′</span></div><div class="color-key"><span>0 · low overlap</span><i></i><span>1 · identical state</span></div><div class="pair-controls"><label for="pair-row">Row <input id="pair-row" type="number" min="0" max="79" value="0"></label><label for="pair-column">Column <input id="pair-column" type="number" min="0" max="79" value="1"></label><span>Click the matrix to inspect a pair</span></div><div id="pair-detail" class="pair-detail" aria-live="polite"></div><p class="caption">Raw measured values before PSD repair. Noisy self-overlap is measured rather than forced to one.</p></article>
+      <article class="panel"><div class="panel-heading"><div><span class="figure-number">FIG. 02</span><h2>The two-moons task</h2></div><span class="tag">80 train / 20 test</span></div><div id="moons" class="moons"></div><div class="legend"><span><i class="class-zero"></i> Class 0</span><span><i class="class-one"></i> Class 1</span><span>○ Training</span><span>● Held-out</span><span>◇ Incorrect prediction</span></div><div class="finding"><span class="figure-number">WHAT THIS CONDITION SHOWS</span><p id="condition-finding"></p></div><div class="mini-topology"><div id="active-graph"></div><div><h3 id="graph-title"></h3><p>Four logical qubits placed on a synthetic physical coupling graph.</p><a href="#architectures">Explore the topology controls →</a></div></div><p class="caption">Point colors show true labels. Diamonds mark held-out errors from the PSD-corrected SVM. This plot displays saved predictions, not a noisy decision boundary.</p></article>
+    </div>
+    <div class="experiment-footnote"><strong>Controlled, not cherry-picked.</strong><p>The primary ring feature map and SVM C were selected using training-only cross-validation. Every processor/compiler comparison freezes them. Exact QSVM and the classical RBF baseline both reach 100% on this split.</p></div>
+  </section>
+  <section id="architectures" aria-labelledby="architectures-title">
+    <div class="section-intro"><div><p class="eyebrow">02 / Connectivity and compilation</p><h2 class="section-title" id="architectures-title">More qubits ≠ less routing.</h2><p class="intro-copy">Six graphs, three interaction patterns, two routers. Explore all 36 compiled comparisons.</p></div><a class="text-link" href="https://github.com/Jethin10/quantum-kernel-svm/blob/main/results/tables/topology_grid.csv">Download the full grid ↗</a></div>
+    <div class="controls"><div><label for="interaction">Logical interactions</label><select id="interaction"><option value="ring">Ring · 4 edges</option><option value="linear">Linear · 3 edges</option><option value="full">Full K4 · 6 edges</option></select></div><div><label for="router">Routing method</label><select id="router"><option value="sabre">SABRE</option><option value="basic">BasicSwap</option></select></div><p>Compile-only controls<span class="control-note">Same primary scale and repetitions</span></p></div>
+    <div id="topology-atlas" class="topology-atlas"></div><p class="caption">Blue nodes show the graph-selected logical placement for the current interaction pattern. Extra physical nodes are gray. All edges allow CX in both directions. Graphs are synthetic; the guide reference is not a claim about a physical heavy-hex device.</p>
+    <div class="insight-strip"><strong id="topology-finding"></strong><p>The square contains a native four-cycle, which favors the ring. Full K4 and tree controls expose the limits of that advantage. Native parity synthesis is a separate exact compiler improvement shown in the experiment above.</p></div>
+  </section>
+  <section id="robustness" aria-labelledby="robustness-title">
+    <div class="section-intro"><div><p class="eyebrow">03 / Stress-testing the result</p><h2 class="section-title" id="robustness-title">A result is stronger when<br>the comparison survives new splits.</h2><p class="intro-copy">Five predeclared partitions. Fresh training-only model selection in each. Paired noisy A/B measurements before and after optimization.</p></div><span class="large-number">96,800<small>additional measured circuits</small></span></div>
+    <div class="controls"><div><label for="robust-metric">Compare across splits</label><select id="robust-metric"><option value="accuracy">Seeded held-out accuracy</option><option value="kernel_rmse">Raw kernel RMSE</option><option value="cx_count">CX gates per overlap</option></select></div><p>5 split seeds × 2 processors × 2 compilers<span class="control-note">4,096 shots per pair · matched synthetic noise</span></p></div>
+    <article class="panel wide"><div class="panel-heading"><div><span class="figure-number">FIG. 03</span><h2 id="robust-chart-title">Seeded held-out accuracy</h2></div><span class="tag">Paired conditions</span></div><div id="robust-chart"></div><div class="legend"><span><i class="class-zero"></i> A</span><span><i class="class-one"></i> B</span><span>— Native parity</span><span>┄ Baseline</span></div></article>
+    <div class="table-wrap"><table><caption>Observed results across five overlapping partitions · mean ± sample SD</caption><thead><tr><th scope="col">Processor / compiler</th><th scope="col">Accuracy</th><th scope="col">Range</th><th scope="col">Mean raw RMSE</th><th scope="col">Mean CX</th></tr></thead><tbody id="robust-table"></tbody></table></div>
+    <div id="robust-finding" class="insight-strip"></div>
+    <details><summary>What the uncertainty does—and does not—measure</summary><p>The five partitions reuse the prescribed 100-point dataset, so their test sets overlap. Their standard deviations describe split sensitivity; they are not confidence intervals from independent datasets. The additional 20 shot-resampling trials per condition draw from the saved noisy all-zero probabilities. They quantify conditional measurement variability, not fresh hardware acquisitions. A separate ten-split study compares exact QSVM and classical baselines.</p><a href="https://github.com/Jethin10/quantum-kernel-svm/blob/main/results/tables/noisy_split_resampling.csv">Inspect the 400 conditional trials ↗</a></details>
+  </section>
+  <section id="method" aria-labelledby="method-title">
+    <div class="section-intro"><div><p class="eyebrow">04 / From a point to a prediction</p><h2 class="section-title" id="method-title">Every claim has a path<br>back to its evidence.</h2></div></div>
+    <ol class="method-steps"><li><span>01</span><h3>Encode</h3><p>Fit min/max scaling on training data. Encode two coordinates as (a, b, a, b) across four qubits, with H, RZ and ZZ interactions.</p></li><li><span>02</span><h3>Estimate</h3><p>Apply U(x) and U(x′)†, then count the global 0000 outcome. Estimate 4,840 pairs per kernel, including 80 diagonal diagnostics.</p></li><li><span>03</span><h3>Compile & correct</h3><p>Preserve the ideal unitary while reducing native CX cost. Retain the positive training eigenspace and consistently extend held-out similarities.</p></li><li><span>04</span><h3>Classify</h3><p>Train a classical precomputed-kernel SVM. Freeze the training-selected C across device and compiler conditions; compare with linear and RBF SVMs.</p></li></ol>
+    <div class="method-grid"><article class="panel"><h3>The exact optimization</h3><p>Compute–uncompute places two diagonal blocks next to each other. Fuse them exactly, then synthesize ring phases using a native parity network.</p><div class="compiler-equation">2r blocks → 2r − 1 blocks</div><p>A chain uses 10 CX per block; a native four-cycle uses 8. For the primary two-layer ring, A drops from 62 to 30 CX and B from 30 to 24. Both optimized circuits have depth 52 and zero routing SWAPs.</p><a href="https://github.com/Jethin10/quantum-kernel-svm/blob/main/docs/compiler_method.md">Read the derivation and unitary validation ↗</a></article><article class="panel"><h3>The limits are part of the result</h3><p>Four qubits and 100 synthetic points cannot demonstrate quantum speedup. The exact classical RBF baseline is already competitive. Lower gate cost and kernel error do not guarantee better classification.</p><p>Noise uses matched depolarizing parameters 0.001 (native single-qubit gates), 0.005 (CX), and independent bit readout error 0.01. Simulator time is not hardware time. No physical quantum processor is accessed.</p><p>The secondary linear model costs only 22 CX, but its conditional shot-resampling accuracy is 92% on both devices versus approximately 96% for the optimized ring.</p></article></div>
+    <div class="evidence-links"><a href="https://github.com/Jethin10/quantum-kernel-svm/blob/main/main.ipynb"><span>01</span><strong>Executed notebook</strong><small>Reproduce the complete study ↗</small></a><a href="https://github.com/Jethin10/quantum-kernel-svm/blob/main/report.md"><span>02</span><strong>Technical report</strong><small>Methods, controls, limitations ↗</small></a><a href="https://github.com/Jethin10/quantum-kernel-svm/tree/main/data/processed"><span>03</span><strong>Raw scientific evidence</strong><small>Counts, matrices, predictions ↗</small></a><a href="https://github.com/Jethin10/quantum-kernel-svm/blob/main/results/checksums.json"><span>04</span><strong>Artifact provenance</strong><small>Source-linked checksums ↗</small></a></div>
+    <div class="reproduce"><div><h3>Run it yourself</h3><p>Python 3.12 · CPU simulation · allow several minutes for a fresh run.</p></div><pre><code>python -m pip install -r requirements.lock.txt
+python scripts/build_notebook.py --execute
+python scripts/verify_submission.py</code></pre></div>
+  </section>
+  <footer><span>Quantum Kernel Lab · QFF 2026 / PS-Q2</span><span id="provenance"></span><a href="data/experiment.json" download>Download explorer data ↓</a></footer>
+  </div>
+  <noscript><p class="error">Enable JavaScript to explore the results, or read the <a href="https://github.com/Jethin10/quantum-kernel-svm/blob/main/report.md">technical report</a>.</p></noscript>
+</main>
+</body>
+</html>

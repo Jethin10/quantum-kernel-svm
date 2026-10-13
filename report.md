@@ -41,9 +41,9 @@ The exported architecture table also includes BasicSwap routing, linear/ring/all
 | CX gates per pair | 62 | 30 |
 | 1q gates per pair | 80 | 80 |
 | Inserted routing SWAPs | 12 | 0 |
-| Measured pairs | 4840.0 | 4840.0 |
-| Total shots | 19824640.0 | 19824640.0 |
-| CX × shots × pairs | 1229127680.0 | 594739200.0 |
+| Measured pairs | 4840 | 4840 |
+| Total shots | 19824640 | 19824640 |
+| CX × shots × pairs | 1229127680 | 594739200 |
 
 B reduces CX count by 51.6% and depth by 29.2% for this primary template. More physical qubits alone do not imply lower cost. A four-cycle is the specific graph property tested. Sparse linear logical interactions may need little or no routing on either architecture; the controls reveal whether the advantage persists under other interaction patterns.
 
@@ -80,7 +80,7 @@ See [the compiler derivation](docs/compiler_method.md) for explicit phase equati
 
 For the frozen two-layer circuit, parity synthesis reduces A from 62 to 30 CX gates and depth 89 to 52; B falls from 30 to 24 CX and depth 63 to 52. Thus B's CX advantage over A shrinks from 51.6% under baseline routing to 20% after exact synthesis. Connectivity and compiler choice jointly determine cost. A naive routing comparison can overstate the irreducible topology penalty.
 
-[Twenty paired shot-resampling trials](results/tables/compiler_resampling_summary.csv) cover every measured circuit variant. [Ten predeclared split seeds](results/tables/nested_split_robustness.csv) repeat training-only model selection and compare exact QSVM with independently tuned classical baselines. These splits reuse the prescribed dataset, and the robustness study uses exact kernels; it does not establish noisy-device or population superiority.
+[Twenty paired shot-resampling trials](results/tables/compiler_resampling_summary.csv) cover every measured circuit variant. [Ten predeclared split seeds](results/tables/nested_split_robustness.csv) repeat training-only model selection and compare exact QSVM with independently tuned classical baselines. These exact splits reuse the prescribed dataset. The separate five-split noisy study measures synthetic execution robustness; neither study establishes physical-device or population superiority.
 
 [Training-only cost/quality controls](results/tables/training_cost_quality.csv) compare linear/ring/full interactions at repetitions 1/2/3 with C selected inside the training set. Stars mark the observed CX-versus-CV Pareto frontier, not a proven global optimum. The primary model remains frozen. [Encoding controls](results/tables/encoding_training_control.csv) compare repeated coordinates with `(a,b,(a+b)/2,(a-b)/2)` using fold-fitted scaling and no held-out labels. These are post-selection diagnostics at the primary angle scale, not unbiased estimates of a newly chosen model.
 
@@ -98,6 +98,24 @@ The training-only rule first maximizes CV accuracy, then minimizes the worst A/B
 [Full measurements](results/tables/cost_aware_measurements.csv) and [20 shot-resampling trials](results/tables/cost_aware_resampling_summary.csv) are retained. This is conditional model selection at an already selected scale, not an unbiased new CV estimate or a change to the primary ring results.
 
 The linear model's conditional shot-resampling mean is **92% on both processors**, compared with **96.25% on A and 96.5% on B** for the native-parity ring model. It is cheaper but less robust to shot fluctuations in this experiment. Ideal training CV and gate count alone do not predict noisy classification quality; the seeded 100% score should not be used to hide that tradeoff.
+
+## Paired noisy robustness across five partitions
+
+| Processor | Compiler | Mean accuracy ± split SD | Range | Mean raw RMSE | Mean CX |
+|---|---|---:|---:|---:|---:|
+| A | baseline | 97.0% ± 2.7% | 95%–100% | 0.1053 | 46.8 |
+| A | fused_parity | 99.0% ± 2.2% | 95%–100% | 0.0689 | 22.0 |
+| B | baseline | 96.0% ± 6.5% | 85%–100% | 0.0717 | 23.6 |
+| B | fused_parity | 96.0% ± 6.5% | 85%–100% | 0.0604 | 17.6 |
+
+Five predeclared split seeds (0–4) each use their own training-only five-fold feature-map/C selection and training-fitted scaler. Within each split, A/B and baseline/native-parity conditions freeze the same ideal kernel and C. We acquire **20 additional noisy kernels, 96,800 circuits at 4,096 shots**. Full histograms, split indices, scaled points, exact references, raw/repaired kernels and predictions are retained in [the noisy robustness evidence](data/processed/noisy_robustness/).
+
+Raw kernel RMSE decreases in **10 of 10** paired processor/split comparisons. A's mean seeded accuracy changes from 97% to 99%; B's remains 96%. The B baseline and native compiler both range from 85% to 100%. Lower distortion is consistent here; accuracy improvement is not universal, and the higher-connectivity graph does not consistently outperform A.
+
+![Six synthetic topology diagrams](results/figures/topology_atlas.png)
+![Paired noisy split study](results/figures/noisy_split_robustness.png)
+
+[Per-split results](results/tables/noisy_split_robustness.csv), [paired differences](results/tables/noisy_split_paired_differences.csv), and [400 conditional shot-resampling trials](results/tables/noisy_split_resampling.csv) preserve the full comparison. Split standard deviations describe overlapping partitions of the same prescribed dataset; they are not confidence intervals for independent datasets. Resampling uses fixed noisy probabilities and is not new hardware acquisition. This study establishes neither statistical significance nor population superiority.
 
 ## Workload and timing definitions
 

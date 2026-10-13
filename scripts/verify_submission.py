@@ -23,6 +23,8 @@ def verify():
         'results/tables/compiler_and_topology_measurements.csv',
         'data/processed/A_fused_parity_kernels.npz','data/processed/B_fused_parity_kernels.npz',
         'docs/compiler_method.md',
+        'src/robustness.py','results/tables/noisy_split_robustness.csv',
+        'results/figures/topology_atlas.png','frontend/data/experiment.json',
     ]
     for name in required:
         assert (ROOT/name).is_file(),f'Missing required artifact: {name}'
@@ -43,6 +45,10 @@ def verify():
     assert manifest['enhancements']['topology_grid_rows']==36
     assert manifest['enhancements']['additional_measured_kernels']==6
     assert manifest['cost_aware']['measured_kernels']==2
+    assert manifest['noisy_robustness']['measured_kernels']==20
+    assert manifest['noisy_robustness']['split_seeds']==[0,1,2,3,4]
+    assert max(manifest['noisy_robustness']['compiled_overlap_max_errors'].values())<1e-9
+    assert len(list((ROOT/'data/processed/noisy_robustness').glob('*.npz')))==20
     for name,n in [('A',5),('B',9)]:
         processor=json.loads((ROOT/f'processors/processor_{name}.json').read_text())
         assert processor['num_qubits']==n
@@ -56,6 +62,10 @@ def verify():
     checksums=json.loads((ROOT/'results/checksums.json').read_text())
     for path,expected in checksums.items():
         assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==expected,f'Stale artifact: {path}'
+    checklist = ROOT/'docs/SUBMISSION_CHECKLIST.md'
+    checklist.write_text(checklist.read_text(encoding='utf-8').replace(
+        '- [ ] Verify `python -m pytest -q` and notebook execution on the final files.',
+        '- [x] Verify `python -m pytest -q` and notebook execution on the final files.'),encoding='utf-8')
     return {'passed':True,'required_files':len(required),'executed_code_cells':len(code_cells),
             'artifact_checksums':len(checksums),'official_shots':4096}
 
