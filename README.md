@@ -74,7 +74,7 @@ Raw kernel RMSE decreases in **10 of 10** paired processor/split comparisons. A'
 
 ## Interactive experiment explorer
 
-Explore the [public GitHub Pages website](https://jethin10.github.io/quantum-kernel-svm/): switch measured processor/compiler conditions, inspect the kernel, explore six topologies, and compare paired noisy splits. It displays saved scientific artifacts; quantum simulation runs in Python. See [website setup and design](docs/frontend_design.md).
+Explore the [public GitHub Pages website](https://jethin10.github.io/quantum-kernel-svm/): drag points to compute exact four-qubit overlaps, step through encoding gates, sample ideal measurements, and explore the trained SVM decision regions. Compare saved noisy kernels, six architectures, paired splits, and the complete study through interactive charts. The browser computes ideal states; Python reproduces the recorded noisy experiments. See [website setup and design](docs/frontend_design.md).
 
 ## Baseline measured result
 
@@ -103,7 +103,7 @@ python -m src.experiment
 
 Open `main.ipynb` using this environment and run all cells. It calls the same implementation as the CLI. The default run measures 4,840 circuits per processor at 4,096 shots, including 80 noisy self-overlap diagnostics. Aer density-matrix simulation avoids a separate noisy statevector evolution for every shot. Batch checkpoints resume interrupted runs; clear `results/.cache/` for a fresh measurement run. Cache keys include circuit, processor, inputs, seed, shots, batch size, and Qiskit/Aer versions. Original simulation timings are preserved and cache reuse is disclosed.
 
-The measured complete pipeline runtime was 52.1 seconds with the disclosed cache state. A fresh run acquires 30 kernels, 145,200 circuits in total, and also repeats exact model selection on ten splits. Allow several minutes on a desktop CPU; timing depends on CPU and thread settings.
+The measured complete pipeline runtime was 55.5 seconds with the disclosed cache state. A fresh run acquires 30 kernels, 145,200 circuits in total, and also repeats exact model selection on ten splits. Allow several minutes on a desktop CPU; timing depends on CPU and thread settings.
 
 Pinned dependencies and `requirements.lock.txt` capture the tested environment. `results/manifest.json` records versions, settings, selected model, predictions, compilation checks, and timings. `results/checksums.json` fingerprints source/configuration/data/result artifacts.
 

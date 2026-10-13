@@ -10,6 +10,8 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from src.visualization import topology_positions
+from src.problem import FeatureSpec,states,kernel
+from src.metrics import fit_kernel
 
 
 def export(root=ROOT):
@@ -43,6 +45,7 @@ def export(root=ROOT):
             'layout':ast.literal_eval(row['initial_layout']),
             'rawTrain':saved[f'{prefix}_train'].round(7).tolist(),
             'rawCross':saved[f'{prefix}_cross'].round(7).tolist(),
+            'psdTrain':saved['noisy_PSD_train' if compiler=='baseline' else 'psd_train'].round(7).tolist(),
             'zeroCounts':saved['histograms'][:,0].tolist(),
             'resampling':mean,
         })
@@ -66,9 +69,42 @@ def export(root=ROOT):
         'conditionalTrials':table('noisy_split_resampling'),
         'classifiers':table('classification'),
         'costAware':table('cost_aware_measurements'),
+        'modelSelection':table('quantum_model_selection'),
+        'trainingTradeoffs':table('training_cost_quality'),
+        'encodingControls':table('encoding_training_control'),
+        'shotSensitivity':table('shot_sensitivity_summary'),
+        'compilerTrials':table('compiler_resampling'),
+        'costAwareTrials':table('cost_aware_resampling_summary'),
+        'allMeasurements':measurements,
+        'kernelDiagnostics':table('kernel_diagnostics'),
+        'featureMapControls':table('feature_map_controls'),
         'sources':sources,
         'displayPrecision':'Kernel matrices and point coordinates rounded to seven decimal places; full precision in source NPZ files.',
     }
+    model,_,_ = fit_kernel(ref['exact_train'],ref['exact_cross'],
+        ref['y'][ref['train_idx']],ref['y'][ref['test_idx']],manifest['C'])
+    payload['liveModel'] = {
+        'scalerMin':ref['scaler_min'].tolist(),'scalerScale':ref['scaler_scale'].tolist(),
+        'supportStates':np.stack([ref['train_states'][model.support_].real,ref['train_states'][model.support_].imag],axis=-1).tolist(),
+        'dual':model.dual_coef_[0].tolist(),'intercept':float(model.intercept_[0]),
+        'testPredictions':model.predict(ref['exact_cross']).tolist(),
+    }
+    payload['browserValidation'] = []
+    for topology,reps,scale in [(t,r,s) for t in ['linear','ring','full'] for r in [1,2,3] for s in [.25,.5,1.5]]:
+        spec = FeatureSpec(reps,scale,topology)
+        points = np.array([[.21,.77],[1.2,2.1]])
+        reference_states = states(points,spec)
+        payload['browserValidation'].append({'spec':spec.to_dict(),'points':points.tolist(),
+            'states':np.stack([reference_states.real,reference_states.imag],axis=-1).tolist(),
+            'fidelity':float(kernel(reference_states)[0,1])})
+    payload['gallery'] = []
+    import shutil
+    for path in sorted((root/'results/figures').glob('*.png')):
+        track(path.relative_to(root))
+        destination = root/'frontend/figures'/path.name
+        destination.parent.mkdir(exist_ok=True)
+        shutil.copyfile(path,destination)
+        payload['gallery'].append({'name':path.stem.replace('_',' '),'path':f'figures/{path.name}'})
     destination = root/'frontend/data/experiment.json'
     destination.parent.mkdir(parents=True,exist_ok=True)
     destination.write_text(json.dumps(payload,separators=(',',':'),allow_nan=False),encoding='utf-8')

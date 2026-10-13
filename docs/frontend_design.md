@@ -1,14 +1,16 @@
 # Website design and evidence
 
-The GitHub Pages explorer presents the saved PS-Q2 experiments. It serves ordinary HTML, CSS, JavaScript and an exported JSON dataset. No quantum jobs or SVM training run in the browser.
+The GitHub Pages lab uses HTML, CSS and JavaScript. Its live view computes exact 16-amplitude states for the four-qubit feature map, fidelity overlaps, seeded ideal shot samples, and inference from the exported, training-fitted exact SVM. It never launches hardware jobs or retrains a classifier in the browser. Saved Aer measurements remain separate and labeled.
 
-Visual reference research:
+The visual direction uses compact tabs, navy framing, white plot surfaces and blue/orange class colors. The main interaction is the draggable moons plot. Explanations sit beside their controls or inside expandable details. System fonts and local scientific figures avoid third-party asset dependencies.
 
-- [Dribbble science dashboards](https://dribbble.com/search/science-dashboard), including the Protera dashboard by Fulcrum Rocks: compact navigation, restrained chart framing and readable tables.
-- [Pinterest analytics dashboard reference](https://www.pinterest.com/pin/907334656178708572/): found in public search, but Pinterest required sign-in and did not expose the pin artwork. No visual claims are based on that inaccessible image.
+Reference research:
 
-These references inform layout; their artwork is not copied into the project. Every plot and topology diagram is drawn from this repository's actual evidence. The design uses an ink sidebar, white plotting surfaces, blue/coral class colors and a large kernel matrix alongside the measured moons predictions. System fonts keep the site usable without third-party requests.
+- [Dribbble science dashboards](https://dribbble.com/search/science-dashboard), including Protera by Fulcrum Rocks, informed restrained chart framing and navigation.
+- [Pinterest dashboard reference](https://www.pinterest.com/pin/907334656178708572/) was found in search but required sign-in. Its artwork was unavailable and is not used.
 
-The interface lets readers switch processor/compiler conditions, inspect an individual measured training pair, explore all six connectivity graphs and compare paired noisy split results. Exact, seeded noisy and conditional shot-resampling outputs have distinct labels. All metrics identify their experiment and preserve unfavorable outcomes.
+Every plotted number comes from this repository. No reference artwork is copied. Six views cover live encoding, saved measured kernels, all six architectures and 36 compiled controls, five paired noisy splits, ten chart-driven study questions, and all 13 original scientific figures.
 
-Run `python scripts/export_frontend.py` after the scientific pipeline, then `python scripts/build_site.py`. The build verifies the source digests embedded in the exported data. Preview with `python -m http.server 4173 --directory frontend/dist`. The Pages workflow publishes only the curated `frontend/dist` directory.
+The live feature map uses H, RZ and ZZ operations with Qiskit's qubit ordering. Changing its settings hides the frozen classifier's decision regions. `node scripts/test_browser_engine.cjs` checks 27 state/fidelity cases against Qiskit and all 20 held-out SVM predictions against sklearn. Browser sampling is ideal Bernoulli sampling, distinct from saved noisy channels.
+
+Run `python scripts/export_frontend.py`, then `python scripts/build_site.py`. The build verifies scientific source digests and copies only public assets into `frontend/dist`. Preview with `python -m http.server 4174 --directory frontend/dist`. GitHub Pages checks the browser engine before publishing this directory.

@@ -1,6 +1,6 @@
 {
   "problem": "PS-Q2",
-  "generated_at_utc": "2026-10-13T07:37:02.991975+00:00",
+  "generated_at_utc": "2026-10-13T08:14:54.205870+00:00",
   "enhancements": {
     "compilation_errors": {
       "A_baseline": 5.329070518200751e-15,
@@ -900,7 +900,7 @@
   },
   "python": "3.12.14",
   "platform": "Windows-11-10.0.26200-SP0",
-  "total_pipeline_seconds": 52.14742490000026,
+  "total_pipeline_seconds": 55.45362350000141,
   "noise_assumption": "Depolarizing channel on rz/sx/x; same policy on A/B. No T1/T2 or durations.",
   "readout_mitigation": "Inverse of known synthetic independent-bit readout channel; no calibration cost claimed.",
   "psd_extension": "Positive training eigenspace above 1e-8; cross projected into same eigenspace."

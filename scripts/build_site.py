@@ -15,7 +15,7 @@ def build():
     for name,digest in payload['sources'].items():
         assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==digest,f'Stale website evidence: {name}'
     assert len(payload['noisySplits'])==20 and len(payload['topologyGrid'])==36
-    for name in ['index.html','styles.css','app.js','favicon.svg','data/experiment.json']:
+    for name in ['index.html','styles.css','app.js','quantum.js','favicon.svg','data/experiment.json']+[g['path'] for g in payload.get('gallery',[])]:
         destination = target/name
         destination.parent.mkdir(parents=True,exist_ok=True)
         shutil.copyfile(source/name,destination)

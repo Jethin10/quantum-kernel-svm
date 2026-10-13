@@ -17,7 +17,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Check browser JavaScript
-        run: node --check frontend/app.js
+        run: |
+          node --check frontend/app.js
+          node scripts/test_browser_engine.cjs
       - name: Verify evidence digests and curate public files
         run: python scripts/build_site.py
       - uses: actions/configure-pages@v5
